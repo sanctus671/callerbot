@@ -25802,3 +25802,49 @@ ion-navbar.toolbar {
 .subscribe-button.button {
   width: 200px;
 }
+
+.channel-header {
+  text-align: center;
+  color: White;
+  margin-top: 10px;
+}
+
+.channel-header h2 {
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+.channel-items {
+  margin-top: 20px;
+}
+
+.channel-item {
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 30px;
+  color: #CF1516;
+  margin-bottom: 15px;
+}
+
+.channel-item ion-col {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.channel-item ion-col ion-icon {
+  float: right;
+  margin-right: 10px;
+}
+
+.channel-unsubscribe {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.unsubscribe-button ion-icon {
+  margin-right: 5px;
+}
