@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 298:
+/***/ 296:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27,7 +27,7 @@ var SignUpPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__sign_up__["a" /* SignUpPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__sign_up__["a" /* SignUpPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__sign_up__["a" /* SignUpPage */]),
             ],
         })
     ], SignUpPageModule);
