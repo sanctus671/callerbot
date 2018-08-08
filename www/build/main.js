@@ -739,12 +739,14 @@ var PrayerPage = /** @class */ (function () {
                         _this.storage.remove("subscription");
                         _this.storage.remove("subscribedChannel");
                         _this.subscribedChannel = null;
-                        var id = _this.subscription.subscriptionId;
-                        var hubId = _this.subscription.hubId;
-                        _this.subscription = { cityId: "", hubId: "" };
+                        var id = _this.subscription["subscriptionId"];
+                        var hubId = _this.subscription["hubId"];
+                        console.log(id);
+                        console.log(_this.subscription);
                         _this.channelProvider.unsubscribe(id).then(function (data) {
                             console.log(data);
                             _this.events.publish("channel:unsubscribed", hubId);
+                            _this.subscription = { cityId: "", hubId: "" };
                         });
                     }
                 }
@@ -1181,21 +1183,25 @@ var MyApp = /** @class */ (function () {
             });
             if (platform.is("cordova")) {
                 console.log(cordova);
+                console.log("connecting mqtt");
                 cordova.plugins.CordovaMqTTPlugin.connect({
-                    url: "tcp://b-f4be5e8b-748c-4ac6-875f-56badddbf4c7-1.mq.ap-southeast-2.amazonaws.com:8883",
-                    port: 8883,
+                    url: "tcp://b-f4be5e8b-748c-4ac6-875f-56badddbf4c7-1.mq.ap-southeast-2.amazonaws.com",
+                    port: 1883,
                     clientId: Math.round(Math.random() * Date.now() * 1000),
                     connectionTimeout: 3000,
                     username: "wentity",
                     password: 'wentity@1234',
                     keepAlive: 60,
                     success: function (s) {
+                        console.log(s);
                         console.log("connect success");
                     },
                     error: function (e) {
+                        console.log(e);
                         console.log("connect error");
                     },
-                    onConnectionLost: function () {
+                    onConnectionLost: function (e) {
+                        console.log(e);
                         console.log("disconnect");
                     }
                 });
@@ -1205,9 +1211,11 @@ var MyApp = /** @class */ (function () {
                     }
                 });
                 _this.events.subscribe('channel:subscribed', function (hubId) {
+                    console.log(hubId);
                     _this.mqttSubscribe(hubId);
                 });
                 _this.events.subscribe('channel:unsubscribed', function (hubId) {
+                    console.log(hubId);
                     _this.mqttUnsubscribe(hubId);
                 });
             }
@@ -1234,7 +1242,7 @@ var MyApp = /** @class */ (function () {
         });
     };
     MyApp.prototype.mqttUnsubscribe = function (hubId) {
-        cordova.plugins.CordovaMqTTPlugin.subscribe({
+        cordova.plugins.CordovaMqTTPlugin.unsubscribe({
             topic: "CHANNEL " + hubId,
             success: function (s) {
                 console.log(s);
@@ -1248,10 +1256,9 @@ var MyApp = /** @class */ (function () {
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\Taylor\Documents\Websites\callerbot\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\callerbot\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_7__providers_authentication_authentication__["a" /* AuthenticationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_authentication_authentication__["a" /* AuthenticationProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_9__ionic_native_background_mode__["a" /* BackgroundMode */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__ionic_native_background_mode__["a" /* BackgroundMode */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_8__ionic_native_local_notifications__["a" /* LocalNotifications */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ionic_native_local_notifications__["a" /* LocalNotifications */]) === "function" && _j || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_7__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_9__ionic_native_background_mode__["a" /* BackgroundMode */], __WEBPACK_IMPORTED_MODULE_8__ionic_native_local_notifications__["a" /* LocalNotifications */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=app.component.js.map
