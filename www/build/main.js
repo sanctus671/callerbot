@@ -1230,6 +1230,7 @@ var MyApp = /** @class */ (function () {
             else {
                 console.log(window);
                 var options = {
+                    uri: 'wss://b-f4be5e8b-748c-4ac6-875f-56badddbf4c7-1.mq.ap-southeast-2.amazonaws.com:8883',
                     host: 'wss://b-f4be5e8b-748c-4ac6-875f-56badddbf4c7-1.mq.ap-southeast-2.amazonaws.com',
                     port: 8883,
                     keepAliveInterval: 120,
