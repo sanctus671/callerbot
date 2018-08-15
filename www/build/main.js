@@ -1230,8 +1230,7 @@ var MyApp = /** @class */ (function () {
             else {
                 console.log(window);
                 var options = {
-                    uri: 'mqtt+ssl://b-f4be5e8b-748c-4ac6-875f-56badddbf4c7-1.mq.ap-southeast-2.amazonaws.com:8883',
-                    host: 'mqtt+ssl://b-f4be5e8b-748c-4ac6-875f-56badddbf4c7-1.mq.ap-southeast-2.amazonaws.com',
+                    host: 'b-f4be5e8b-748c-4ac6-875f-56badddbf4c7-1.mq.ap-southeast-2.amazonaws.com',
                     port: 8883,
                     keepAliveInterval: 120,
                     clientId: "clientId" + Math.round(Math.random() * Date.now() * 1000),
