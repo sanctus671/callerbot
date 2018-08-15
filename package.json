@@ -31,6 +31,7 @@
     "cordova-plugin-geolocation": "^4.0.1",
     "cordova-plugin-local-notification": "^0.9.0-beta.2",
     "cordova-plugin-mqtt": "^0.3.8",
+    "cordova-plugin-mqtt-pahojs": "^1.5.8",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "rxjs": "5.5.11",
@@ -49,7 +50,8 @@
         "GEOLOCATION_USAGE_DESCRIPTION": "We use your location to show you the best channels to subscribe to"
       },
       "cordova-plugin-local-notification": {},
-      "cordova-plugin-background-mode": {}
+      "cordova-plugin-background-mode": {},
+      "cordova-plugin-mqtt-pahojs": {}
     }
   }
 }

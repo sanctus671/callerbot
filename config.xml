@@ -101,4 +101,5 @@
     </plugin>
     <gap:plugin name="de.appplant.cordova.plugin.local-notification" source="npm" />
     <plugin name="cordova-plugin-background-mode" spec="^0.7.2" />
+    <plugin name="cordova-plugin-mqtt-pahojs" spec="^1.5.8" />
 </widget>
