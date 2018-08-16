@@ -755,6 +755,12 @@ var PrayerPage = /** @class */ (function () {
         this.localNotifications.getScheduledIds().then(function (ids) {
             _this.localNotifications.cancel(ids);
         });
+        this.localNotifications.schedule({
+            id: 1,
+            title: "test",
+            text: "Starts at",
+            trigger: { at: new Date(new Date().getTime() + 3600) }
+        });
         var id = 2;
         for (var _i = 0, _a = this.prayerTimes; _i < _a.length; _i++) {
             var prayer = _a[_i];
@@ -774,16 +780,18 @@ var PrayerPage = /** @class */ (function () {
                     });
                     id++;
                 }
-                if (prayerTime2.isAfter(today)) {
+                /*
+                if (prayerTime2.isAfter(today)){
                     console.log(new Date(prayerTime2.year(), prayerTime2.month(), prayerTime2.date(), prayerTime2.hour(), prayerTime2.minutes()));
                     this.localNotifications.schedule({
-                        id: id,
+                        id:id,
                         title: prayer.prayerName + " prayer (Ikhama)",
                         text: "Starts at " + prayer.ikhamaTime.trim(),
-                        trigger: { at: new Date(prayerTime2.year(), prayerTime2.month(), prayerTime2.date(), prayerTime2.hour(), prayerTime2.minutes()) }
+                        trigger: {at: new Date(prayerTime2.year(), prayerTime2.month(), prayerTime2.date(), prayerTime2.hour(), prayerTime2.minutes()) }
                     });
-                    id++;
+                    id++
                 }
+                */
                 prayerTime.add(1, 'days');
                 prayerTime2.add(1, 'days');
             }
