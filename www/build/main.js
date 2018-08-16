@@ -734,7 +734,7 @@ var PrayerPage = /** @class */ (function () {
             var prayerExpiry = __WEBPACK_IMPORTED_MODULE_5_moment__(prayer.expireDateTime, 'DD-MM-YYYY');
             var prayerStart = __WEBPACK_IMPORTED_MODULE_5_moment__(prayer.activateDateTime, 'DD-MM-YYYY');
             var today = __WEBPACK_IMPORTED_MODULE_5_moment__();
-            if (prayerExpiry.isAfter(today) /*&& prayerStart.isBefore(today)*/) {
+            if (prayerExpiry.isAfter(today) && prayerStart.isBefore(today)) {
                 filteredPrayers.push(prayer);
             }
         }
@@ -742,22 +742,26 @@ var PrayerPage = /** @class */ (function () {
     };
     PrayerPage.prototype.generateNotifications = function () {
         var _this = this;
+        console.log(this.prayerTimes);
         if (!this.platform.is("cordova")) {
             return;
         }
-        console.log(this.prayerTimes);
         this.localNotifications.getScheduledIds().then(function (ids) {
             _this.localNotifications.cancel(ids);
         });
         for (var _i = 0, _a = this.prayerTimes; _i < _a.length; _i++) {
             var prayer = _a[_i];
             var prayerTime = __WEBPACK_IMPORTED_MODULE_5_moment__((prayer.activateDateTime + " " + prayer.adzanTime), 'DD-MM-YYYY hh:mm A');
-            this.localNotifications.schedule({
-                id: prayer.salatTimeId,
-                title: prayer.prayerName + " prayer",
-                text: "Starts at " + prayer.adzanTime.trim(),
-                trigger: { at: new Date(prayerTime.year(), prayerTime.month(), prayerTime.day(), prayerTime.hour(), prayerTime.minutes()) }
-            });
+            var prayerExpiry = __WEBPACK_IMPORTED_MODULE_5_moment__((prayer.expireDateTime + " " + prayer.adzanTime), 'DD-MM-YYYY hh:mm A');
+            var days = prayerExpiry.diff(prayerTime, 'days') + 1;
+            for (var i = 0; i < days; i++) {
+                this.localNotifications.schedule({
+                    title: prayer.prayerName + " prayer",
+                    text: "Starts at " + prayer.adzanTime.trim(),
+                    trigger: { at: new Date(prayerTime.year(), prayerTime.month(), prayerTime.day(), prayerTime.hour(), prayerTime.minutes()) }
+                });
+                prayerTime.add(1, 'days');
+            }
             console.log(prayerTime);
         }
     };
