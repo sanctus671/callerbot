@@ -25830,6 +25830,14 @@ ion-navbar.toolbar {
   margin-bottom: 15px;
 }
 
+.channel-item.channel-headers {
+  background-color: transparent;
+  color: white;
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+  padding-top: 0px;
+}
+
 .channel-item ion-col {
   overflow: hidden;
   text-overflow: ellipsis;
