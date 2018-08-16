@@ -4,10 +4,124 @@ webpackJsonp([6],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals_announcement_announcement__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_channel_channel__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+/**
+ * Generated class for the EventsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var EventsPage = /** @class */ (function () {
+    function EventsPage(navCtrl, navParams, storage, modalCtrl, events, channelProvider, ngZone) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.storage = storage;
+        this.modalCtrl = modalCtrl;
+        this.events = events;
+        this.channelProvider = channelProvider;
+        this.ngZone = ngZone;
+        this.announcements = [];
+        this.events.subscribe("mqtt:message", function (message) {
+            _this.getAnnouncements();
+        });
+    }
+    EventsPage.prototype.ionViewWillEnter = function () {
+        var _this = this;
+        this.loading = true;
+        this.subscribedChannel = null;
+        this.storage.get("subscribedChannel").then(function (data) {
+            console.log(data);
+            _this.loading = false;
+            if (data) {
+                _this.subscribedChannel = data;
+                _this.getAnnouncements();
+            }
+        });
+    };
+    EventsPage.prototype.getAnnouncements = function () {
+        var _this = this;
+        if (this.subscribedChannel) {
+            this.channelProvider.getAnnouncements(this.subscribedChannel.hubId).then(function (announcements) {
+                _this.ngZone.run(function () {
+                    _this.announcements = _this.filterAnnouncements(announcements);
+                });
+                _this.storage.set("announcements", announcements);
+                console.log(announcements);
+            }).catch(function () {
+                _this.storage.get("announcements").then(function (data) {
+                    if (data) {
+                        _this.ngZone.run(function () {
+                            _this.announcements = _this.filterAnnouncements(data);
+                        });
+                    }
+                });
+            });
+        }
+    };
+    EventsPage.prototype.filterAnnouncements = function (announcements) {
+        var filteredAnnouncements = [];
+        for (var _i = 0, announcements_1 = announcements; _i < announcements_1.length; _i++) {
+            var announcement = announcements_1[_i];
+            var announcementDateEnd = __WEBPACK_IMPORTED_MODULE_5_moment__(announcement.eventEnd, 'DD-MM-YYYY hh:mm A');
+            var announcementDateStart = __WEBPACK_IMPORTED_MODULE_5_moment__(announcement.eventStart, 'DD-MM-YYYY hh:mm A');
+            var today = __WEBPACK_IMPORTED_MODULE_5_moment__();
+            if (announcementDateEnd.isAfter(today) /* && announcementDateStart.isBefore(today)*/) {
+                filteredAnnouncements.push(announcement);
+            }
+        }
+        return filteredAnnouncements;
+    };
+    EventsPage.prototype.openAnnouncement = function (announcement) {
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_3__modals_announcement_announcement__["a" /* AnnouncementModal */], { announcement: announcement });
+        modal.present();
+    };
+    EventsPage.prototype.stripHtml = function (html) {
+        return html.replace(/<(?:.|\n)*?>/gm, '');
+    };
+    EventsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-events',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\callerbot\src\pages\events\events.html"*/'\n\n\n<ion-content padding>\n    \n    <div class="subscribe-form" *ngIf="!subscribedChannel && !loading">\n        <div class="login-top-section signup-top-section">\n\n            <img class="logo" src="assets/imgs/logo-light.png" />\n            <h2>You are not subscribed to a channel</h2>\n        </div>  \n    </div>\n        \n    <div class="channel-feed" *ngIf="subscribedChannel && !loading">\n        \n        \n        <div class="channel-header">\n            <img src="assets/imgs/prayer.png" />\n            <h2>{{subscribedChannel.channelName}}</h2>\n        </div>\n        \n        <div class="channel-items">\n            <ion-row class="channel-item" *ngFor="let announcement of announcements" (click)="openAnnouncement(announcement)">\n                <ion-col col-4>{{announcement.title}}</ion-col>\n                <ion-col col-6>{{stripHtml(announcement.message)}}</ion-col>\n                <ion-col col-2>\n                    \n                    <ion-icon ios=\'ios-arrow-forward\' md=\'ios-arrow-forward\'></ion-icon>                    \n                    \n                </ion-col>\n            </ion-row>\n        </div>\n        \n    </div>        \n        \n        \n</ion-content>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\callerbot\src\pages\events\events.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_4__providers_channel_channel__["a" /* ChannelProvider */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgZone */]])
+    ], EventsPage);
+    return EventsPage;
+}());
+
+//# sourceMappingURL=events.js.map
+
+/***/ }),
+
+/***/ 111:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeedbackPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_feedback_feedback__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_feedback_feedback__ = __webpack_require__(294);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(22);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -81,115 +195,6 @@ var FeedbackPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=feedback.js.map
-
-/***/ }),
-
-/***/ 111:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals_announcement_announcement__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_channel_channel__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-/**
- * Generated class for the EventsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var EventsPage = /** @class */ (function () {
-    function EventsPage(navCtrl, navParams, storage, modalCtrl, events, channelProvider) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.storage = storage;
-        this.modalCtrl = modalCtrl;
-        this.events = events;
-        this.channelProvider = channelProvider;
-        this.announcements = [];
-        this.events.subscribe("mqtt:message", function () {
-            _this.getAnnouncements();
-        });
-    }
-    EventsPage.prototype.ionViewWillEnter = function () {
-        var _this = this;
-        this.loading = true;
-        this.subscribedChannel = null;
-        this.storage.get("subscribedChannel").then(function (data) {
-            console.log(data);
-            _this.loading = false;
-            if (data) {
-                _this.subscribedChannel = data;
-                _this.getAnnouncements();
-            }
-        });
-    };
-    EventsPage.prototype.getAnnouncements = function () {
-        var _this = this;
-        if (this.subscribedChannel) {
-            this.channelProvider.getAnnouncements(this.subscribedChannel.hubId).then(function (announcements) {
-                _this.announcements = _this.filterAnnouncements(announcements);
-                _this.storage.set("announcements", announcements);
-                console.log(announcements);
-            }).catch(function () {
-                _this.storage.get("announcements").then(function (data) {
-                    if (data) {
-                        _this.announcements = _this.filterAnnouncements(data);
-                    }
-                });
-            });
-        }
-    };
-    EventsPage.prototype.filterAnnouncements = function (announcements) {
-        var filteredAnnouncements = [];
-        for (var _i = 0, announcements_1 = announcements; _i < announcements_1.length; _i++) {
-            var announcement = announcements_1[_i];
-            var announcementDateEnd = __WEBPACK_IMPORTED_MODULE_5_moment__(announcement.eventEnd, 'DD-MM-YYYY hh:mm A');
-            var announcementDateStart = __WEBPACK_IMPORTED_MODULE_5_moment__(announcement.eventStart, 'DD-MM-YYYY hh:mm A');
-            var today = __WEBPACK_IMPORTED_MODULE_5_moment__();
-            if (announcementDateEnd.isAfter(today) /* && announcementDateStart.isBefore(today)*/) {
-                filteredAnnouncements.push(announcement);
-            }
-        }
-        return filteredAnnouncements;
-    };
-    EventsPage.prototype.openAnnouncement = function (announcement) {
-        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_3__modals_announcement_announcement__["a" /* AnnouncementModal */], { announcement: announcement });
-        modal.present();
-    };
-    EventsPage.prototype.stripHtml = function (html) {
-        return html.replace(/<(?:.|\n)*?>/gm, '');
-    };
-    EventsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-events',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\callerbot\src\pages\events\events.html"*/'\n\n\n<ion-content padding>\n    \n    <div class="subscribe-form" *ngIf="!subscribedChannel && !loading">\n        <div class="login-top-section signup-top-section">\n\n            <img class="logo" src="assets/imgs/logo-light.png" />\n            <h2>You are not subscribed to a channel</h2>\n        </div>  \n    </div>\n        \n    <div class="channel-feed" *ngIf="subscribedChannel && !loading">\n        \n        \n        <div class="channel-header">\n            <img src="assets/imgs/prayer.png" />\n            <h2>{{subscribedChannel.channelName}}</h2>\n        </div>\n        \n        <div class="channel-items">\n            <ion-row class="channel-item" *ngFor="let announcement of announcements" (click)="openAnnouncement(announcement)">\n                <ion-col col-4>{{announcement.title}}</ion-col>\n                <ion-col col-6>{{stripHtml(announcement.message)}}</ion-col>\n                <ion-col col-2>\n                    \n                    <ion-icon ios=\'ios-arrow-forward\' md=\'ios-arrow-forward\'></ion-icon>                    \n                    \n                </ion-col>\n            </ion-row>\n        </div>\n        \n    </div>        \n        \n        \n</ion-content>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\callerbot\src\pages\events\events.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_4__providers_channel_channel__["a" /* ChannelProvider */]])
-    ], EventsPage);
-    return EventsPage;
-}());
-
-//# sourceMappingURL=events.js.map
 
 /***/ }),
 
@@ -472,11 +477,11 @@ webpackEmptyAsyncContext.id = 125;
 
 var map = {
 	"../pages/events/events.module": [
-		423,
+		422,
 		5
 	],
 	"../pages/feedback/feedback.module": [
-		422,
+		423,
 		4
 	],
 	"../pages/forgot-password/forgot-password.module": [
@@ -513,6 +518,53 @@ module.exports = webpackAsyncContext;
 /***/ }),
 
 /***/ 168:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnnouncementModal; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__ = __webpack_require__(169);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AnnouncementModal = /** @class */ (function () {
+    function AnnouncementModal(platform, params, viewCtrl, iab) {
+        this.platform = platform;
+        this.params = params;
+        this.viewCtrl = viewCtrl;
+        this.iab = iab;
+        this.announcement = params.data.announcement;
+    }
+    AnnouncementModal.prototype.openAttachment = function (url) {
+        this.iab.create(url, "_system");
+    };
+    AnnouncementModal.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
+    AnnouncementModal = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'announcement',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\callerbot\src\modals\announcement\announcement.html"*/'<ion-header>\n    <ion-toolbar color="primary">\n        <ion-title>\n            {{announcement ? announcement.title : "Announcement"}}\n        </ion-title>\n        <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n                <span ion-text showWhen="ios">Cancel</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content class=\'standard-background\' padding>\n    <div [innerHtml]="announcement.message"></div>\n    \n    <div class="attachment" *ngIf="announcement.attachementData">\n        \n        <button ion-button color=\'primary\' round class="subscribe-button" (click)="openAttachment(announcement.attachementData)">\n            <ion-icon name="attach"></ion-icon> \n            View Attachment\n        </button>          \n        \n    </div>\n</ion-content>'/*ion-inline-end:"D:\Taylor\Documents\Websites\callerbot\src\modals\announcement\announcement.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */]])
+    ], AnnouncementModal);
+    return AnnouncementModal;
+}());
+
+//# sourceMappingURL=announcement.js.map
+
+/***/ }),
+
+/***/ 294:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -573,53 +625,6 @@ var FeedbackProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 169:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnnouncementModal; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__ = __webpack_require__(170);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var AnnouncementModal = /** @class */ (function () {
-    function AnnouncementModal(platform, params, viewCtrl, iab) {
-        this.platform = platform;
-        this.params = params;
-        this.viewCtrl = viewCtrl;
-        this.iab = iab;
-        this.announcement = params.data.announcement;
-    }
-    AnnouncementModal.prototype.openAttachment = function (url) {
-        this.iab.create(url, "_system");
-    };
-    AnnouncementModal.prototype.dismiss = function () {
-        this.viewCtrl.dismiss();
-    };
-    AnnouncementModal = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'announcement',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\callerbot\src\modals\announcement\announcement.html"*/'<ion-header>\n    <ion-toolbar color="primary">\n        <ion-title>\n            {{announcement ? announcement.title : "Announcement"}}\n        </ion-title>\n        <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n                <span ion-text showWhen="ios">Cancel</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content class=\'standard-background\' padding>\n    <div [innerHtml]="announcement.message"></div>\n    \n    <div class="attachment" *ngIf="announcement.attachementData">\n        \n        <button ion-button color=\'primary\' round class="subscribe-button" (click)="openAttachment(announcement.attachementData)">\n            <ion-icon name="attach"></ion-icon> \n            View Attachment\n        </button>          \n        \n    </div>\n</ion-content>'/*ion-inline-end:"D:\Taylor\Documents\Websites\callerbot\src\modals\announcement\announcement.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__["a" /* InAppBrowser */]])
-    ], AnnouncementModal);
-    return AnnouncementModal;
-}());
-
-//# sourceMappingURL=announcement.js.map
-
-/***/ }),
-
 /***/ 295:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -650,7 +655,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var PrayerPage = /** @class */ (function () {
-    function PrayerPage(navCtrl, platform, countryProvider, channelProvider, alertCtrl, storage, events, localNotifications) {
+    function PrayerPage(navCtrl, platform, countryProvider, channelProvider, alertCtrl, storage, events, localNotifications, ngZone) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.platform = platform;
@@ -660,6 +665,7 @@ var PrayerPage = /** @class */ (function () {
         this.storage = storage;
         this.events = events;
         this.localNotifications = localNotifications;
+        this.ngZone = ngZone;
         this.loading = true;
         this.subscription = { cityId: "", hubId: "" };
         this.cities = [];
@@ -704,13 +710,17 @@ var PrayerPage = /** @class */ (function () {
         var _this = this;
         if (this.subscribedChannel) {
             this.channelProvider.getSalatTimes(this.subscribedChannel.hubId).then(function (times) {
-                _this.prayerTimes = _this.filterPrayers(times);
+                _this.ngZone.run(function () {
+                    _this.prayerTimes = _this.filterPrayers(times);
+                });
                 _this.storage.set("salatTimes", times);
                 _this.generateNotifications();
             }).catch(function () {
                 _this.storage.get("salatTimes").then(function (data) {
                     if (data) {
-                        _this.prayerTimes = _this.filterPrayers(data);
+                        _this.ngZone.run(function () {
+                            _this.prayerTimes = _this.filterPrayers(data);
+                        });
                         _this.generateNotifications();
                     }
                 });
@@ -846,7 +856,7 @@ var PrayerPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-prayer',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\callerbot\src\pages\prayer\prayer.html"*/'<ion-content padding>\n    \n    <div class="subscribe-form" *ngIf="!subscribedChannel && !loading">\n        <div class="login-top-section signup-top-section">\n\n            <img class="logo" src="assets/imgs/logo-light.png" />\n            <h2>Please choose your location</h2>\n        </div>    \n\n        <ion-list class="login-form" ion-card>\n            \n            <ion-item>\n                <ion-label floating color="light">\n                    <ion-icon name="pin"></ion-icon> \n                    Region\n                </ion-label>\n                <ion-select [(ngModel)]="region" (ionChange)="getCities()">\n                    <ion-option value="{{region.regionId}}" *ngFor="let region of regions">{{region.regionName}}</ion-option>\n                </ion-select>\n            </ion-item>        \n            \n\n            <ion-item *ngIf="region">\n                <ion-label floating color="light">\n                    <ion-icon name="pin"></ion-icon> \n                    City\n                </ion-label>\n                <ion-select [(ngModel)]="subscription.cityId" (ionChange)="getChannels()">\n                    <ion-option value="{{city.cityId}}" *ngFor="let city of cities">{{city.cityName}}</ion-option>\n                </ion-select>\n            </ion-item>\n           \n\n        </ion-list>\n    \n        <div class="choose-channel" *ngIf="subscription.cityId">\n            <h2>Please choose your channel</h2>\n\n            <div class="channels">\n                <button ion-button  *ngFor="let channel of channels" [outline]="subscription.hubId !== channel.hubId" color=\'light\' round class="subscribe-button" (click)="selectChannel(channel)">\n                    <ion-icon name="heart"></ion-icon> \n                    {{channel.channelName}}\n                </button>                    \n            </div>\n        \n        </div>\n        \n    </div>\n    \n    \n    \n    <div class="channel-feed" *ngIf="subscribedChannel && !loading">\n        \n\n        <div class="channel-header">\n            <img src="assets/imgs/prayer.png" />\n            <h2>{{subscribedChannel.channelName}}</h2>\n        </div>\n        \n        <div class="channel-items">\n            \n            <ion-row class="channel-item channel-headers">\n                <ion-col>Prayer</ion-col>\n                <ion-col>Adzan Time</ion-col>\n                <ion-col>Ikhama Time</ion-col>\n            </ion-row>            \n            \n            <ion-row class="channel-item" *ngFor="let prayerTime of prayerTimes">\n                <ion-col>{{prayerTime.prayerName}}</ion-col>\n                <ion-col>{{prayerTime.adzanTime}}</ion-col>\n                <ion-col>{{prayerTime.ikhamaTime}}</ion-col>\n            </ion-row>\n        </div>\n\n        \n        <div class="channel-unsubscribe">\n        <button ion-button color=\'light\' outline round class="unsubscribe-button" (click)="unsubscribe()">\n            <ion-icon name="notifications-off"></ion-icon> Unsubscribe\n        </button>            \n        </div>\n        \n    </div>\n    \n</ion-content>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\callerbot\src\pages\prayer\prayer.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__providers_country_country__["a" /* CountryProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_channel_channel__["a" /* ChannelProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_local_notifications__["a" /* LocalNotifications */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__providers_country_country__["a" /* CountryProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_channel_channel__["a" /* ChannelProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_local_notifications__["a" /* LocalNotifications */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgZone */]])
     ], PrayerPage);
     return PrayerPage;
 }());
@@ -1081,22 +1091,22 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_sign_up_sign_up__ = __webpack_require__(113);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_forgot_password_forgot_password__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_prayer_prayer__ = __webpack_require__(295);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_events_events__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_events_events__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_settings_settings__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_feedback_feedback__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_feedback_feedback__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_tabs_tabs__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__modals_terms_conditions_terms_conditions__ = __webpack_require__(297);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__modals_announcement_announcement__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__modals_announcement_announcement__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ionic_native_status_bar__ = __webpack_require__(337);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_splash_screen__ = __webpack_require__(338);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_authentication_authentication__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_country_country__ = __webpack_require__(296);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_channel_channel__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_feedback_feedback__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_feedback_feedback__ = __webpack_require__(294);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_geolocation__ = __webpack_require__(421);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ionic_native_local_notifications__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_background_mode__ = __webpack_require__(339);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_in_app_browser__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_in_app_browser__ = __webpack_require__(169);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1152,8 +1162,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/feedback/feedback.module#FeedbackPageModule', name: 'FeedbackPage', segment: 'feedback', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/events/events.module#EventsPageModule', name: 'EventsPage', segment: 'events', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/feedback/feedback.module#FeedbackPageModule', name: 'FeedbackPage', segment: 'feedback', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/forgot-password/forgot-password.module#ForgotPasswordPageModule', name: 'ForgotPasswordPage', segment: 'forgot-password', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
@@ -1275,252 +1285,252 @@ var LoginPage = /** @class */ (function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 172,
-	"./af.js": 172,
-	"./ar": 173,
-	"./ar-dz": 174,
-	"./ar-dz.js": 174,
-	"./ar-kw": 175,
-	"./ar-kw.js": 175,
-	"./ar-ly": 176,
-	"./ar-ly.js": 176,
-	"./ar-ma": 177,
-	"./ar-ma.js": 177,
-	"./ar-sa": 178,
-	"./ar-sa.js": 178,
-	"./ar-tn": 179,
-	"./ar-tn.js": 179,
-	"./ar.js": 173,
-	"./az": 180,
-	"./az.js": 180,
-	"./be": 181,
-	"./be.js": 181,
-	"./bg": 182,
-	"./bg.js": 182,
-	"./bm": 183,
-	"./bm.js": 183,
-	"./bn": 184,
-	"./bn.js": 184,
-	"./bo": 185,
-	"./bo.js": 185,
-	"./br": 186,
-	"./br.js": 186,
-	"./bs": 187,
-	"./bs.js": 187,
-	"./ca": 188,
-	"./ca.js": 188,
-	"./cs": 189,
-	"./cs.js": 189,
-	"./cv": 190,
-	"./cv.js": 190,
-	"./cy": 191,
-	"./cy.js": 191,
-	"./da": 192,
-	"./da.js": 192,
-	"./de": 193,
-	"./de-at": 194,
-	"./de-at.js": 194,
-	"./de-ch": 195,
-	"./de-ch.js": 195,
-	"./de.js": 193,
-	"./dv": 196,
-	"./dv.js": 196,
-	"./el": 197,
-	"./el.js": 197,
-	"./en-au": 198,
-	"./en-au.js": 198,
-	"./en-ca": 199,
-	"./en-ca.js": 199,
-	"./en-gb": 200,
-	"./en-gb.js": 200,
-	"./en-ie": 201,
-	"./en-ie.js": 201,
-	"./en-il": 202,
-	"./en-il.js": 202,
-	"./en-nz": 203,
-	"./en-nz.js": 203,
-	"./eo": 204,
-	"./eo.js": 204,
-	"./es": 205,
-	"./es-do": 206,
-	"./es-do.js": 206,
-	"./es-us": 207,
-	"./es-us.js": 207,
-	"./es.js": 205,
-	"./et": 208,
-	"./et.js": 208,
-	"./eu": 209,
-	"./eu.js": 209,
-	"./fa": 210,
-	"./fa.js": 210,
-	"./fi": 211,
-	"./fi.js": 211,
-	"./fo": 212,
-	"./fo.js": 212,
-	"./fr": 213,
-	"./fr-ca": 214,
-	"./fr-ca.js": 214,
-	"./fr-ch": 215,
-	"./fr-ch.js": 215,
-	"./fr.js": 213,
-	"./fy": 216,
-	"./fy.js": 216,
-	"./gd": 217,
-	"./gd.js": 217,
-	"./gl": 218,
-	"./gl.js": 218,
-	"./gom-latn": 219,
-	"./gom-latn.js": 219,
-	"./gu": 220,
-	"./gu.js": 220,
-	"./he": 221,
-	"./he.js": 221,
-	"./hi": 222,
-	"./hi.js": 222,
-	"./hr": 223,
-	"./hr.js": 223,
-	"./hu": 224,
-	"./hu.js": 224,
-	"./hy-am": 225,
-	"./hy-am.js": 225,
-	"./id": 226,
-	"./id.js": 226,
-	"./is": 227,
-	"./is.js": 227,
-	"./it": 228,
-	"./it.js": 228,
-	"./ja": 229,
-	"./ja.js": 229,
-	"./jv": 230,
-	"./jv.js": 230,
-	"./ka": 231,
-	"./ka.js": 231,
-	"./kk": 232,
-	"./kk.js": 232,
-	"./km": 233,
-	"./km.js": 233,
-	"./kn": 234,
-	"./kn.js": 234,
-	"./ko": 235,
-	"./ko.js": 235,
-	"./ky": 236,
-	"./ky.js": 236,
-	"./lb": 237,
-	"./lb.js": 237,
-	"./lo": 238,
-	"./lo.js": 238,
-	"./lt": 239,
-	"./lt.js": 239,
-	"./lv": 240,
-	"./lv.js": 240,
-	"./me": 241,
-	"./me.js": 241,
-	"./mi": 242,
-	"./mi.js": 242,
-	"./mk": 243,
-	"./mk.js": 243,
-	"./ml": 244,
-	"./ml.js": 244,
-	"./mn": 245,
-	"./mn.js": 245,
-	"./mr": 246,
-	"./mr.js": 246,
-	"./ms": 247,
-	"./ms-my": 248,
-	"./ms-my.js": 248,
-	"./ms.js": 247,
-	"./mt": 249,
-	"./mt.js": 249,
-	"./my": 250,
-	"./my.js": 250,
-	"./nb": 251,
-	"./nb.js": 251,
-	"./ne": 252,
-	"./ne.js": 252,
-	"./nl": 253,
-	"./nl-be": 254,
-	"./nl-be.js": 254,
-	"./nl.js": 253,
-	"./nn": 255,
-	"./nn.js": 255,
-	"./pa-in": 256,
-	"./pa-in.js": 256,
-	"./pl": 257,
-	"./pl.js": 257,
-	"./pt": 258,
-	"./pt-br": 259,
-	"./pt-br.js": 259,
-	"./pt.js": 258,
-	"./ro": 260,
-	"./ro.js": 260,
-	"./ru": 261,
-	"./ru.js": 261,
-	"./sd": 262,
-	"./sd.js": 262,
-	"./se": 263,
-	"./se.js": 263,
-	"./si": 264,
-	"./si.js": 264,
-	"./sk": 265,
-	"./sk.js": 265,
-	"./sl": 266,
-	"./sl.js": 266,
-	"./sq": 267,
-	"./sq.js": 267,
-	"./sr": 268,
-	"./sr-cyrl": 269,
-	"./sr-cyrl.js": 269,
-	"./sr.js": 268,
-	"./ss": 270,
-	"./ss.js": 270,
-	"./sv": 271,
-	"./sv.js": 271,
-	"./sw": 272,
-	"./sw.js": 272,
-	"./ta": 273,
-	"./ta.js": 273,
-	"./te": 274,
-	"./te.js": 274,
-	"./tet": 275,
-	"./tet.js": 275,
-	"./tg": 276,
-	"./tg.js": 276,
-	"./th": 277,
-	"./th.js": 277,
-	"./tl-ph": 278,
-	"./tl-ph.js": 278,
-	"./tlh": 279,
-	"./tlh.js": 279,
-	"./tr": 280,
-	"./tr.js": 280,
-	"./tzl": 281,
-	"./tzl.js": 281,
-	"./tzm": 282,
-	"./tzm-latn": 283,
-	"./tzm-latn.js": 283,
-	"./tzm.js": 282,
-	"./ug-cn": 284,
-	"./ug-cn.js": 284,
-	"./uk": 285,
-	"./uk.js": 285,
-	"./ur": 286,
-	"./ur.js": 286,
-	"./uz": 287,
-	"./uz-latn": 288,
-	"./uz-latn.js": 288,
-	"./uz.js": 287,
-	"./vi": 289,
-	"./vi.js": 289,
-	"./x-pseudo": 290,
-	"./x-pseudo.js": 290,
-	"./yo": 291,
-	"./yo.js": 291,
-	"./zh-cn": 292,
-	"./zh-cn.js": 292,
-	"./zh-hk": 293,
-	"./zh-hk.js": 293,
-	"./zh-tw": 294,
-	"./zh-tw.js": 294
+	"./af": 171,
+	"./af.js": 171,
+	"./ar": 172,
+	"./ar-dz": 173,
+	"./ar-dz.js": 173,
+	"./ar-kw": 174,
+	"./ar-kw.js": 174,
+	"./ar-ly": 175,
+	"./ar-ly.js": 175,
+	"./ar-ma": 176,
+	"./ar-ma.js": 176,
+	"./ar-sa": 177,
+	"./ar-sa.js": 177,
+	"./ar-tn": 178,
+	"./ar-tn.js": 178,
+	"./ar.js": 172,
+	"./az": 179,
+	"./az.js": 179,
+	"./be": 180,
+	"./be.js": 180,
+	"./bg": 181,
+	"./bg.js": 181,
+	"./bm": 182,
+	"./bm.js": 182,
+	"./bn": 183,
+	"./bn.js": 183,
+	"./bo": 184,
+	"./bo.js": 184,
+	"./br": 185,
+	"./br.js": 185,
+	"./bs": 186,
+	"./bs.js": 186,
+	"./ca": 187,
+	"./ca.js": 187,
+	"./cs": 188,
+	"./cs.js": 188,
+	"./cv": 189,
+	"./cv.js": 189,
+	"./cy": 190,
+	"./cy.js": 190,
+	"./da": 191,
+	"./da.js": 191,
+	"./de": 192,
+	"./de-at": 193,
+	"./de-at.js": 193,
+	"./de-ch": 194,
+	"./de-ch.js": 194,
+	"./de.js": 192,
+	"./dv": 195,
+	"./dv.js": 195,
+	"./el": 196,
+	"./el.js": 196,
+	"./en-au": 197,
+	"./en-au.js": 197,
+	"./en-ca": 198,
+	"./en-ca.js": 198,
+	"./en-gb": 199,
+	"./en-gb.js": 199,
+	"./en-ie": 200,
+	"./en-ie.js": 200,
+	"./en-il": 201,
+	"./en-il.js": 201,
+	"./en-nz": 202,
+	"./en-nz.js": 202,
+	"./eo": 203,
+	"./eo.js": 203,
+	"./es": 204,
+	"./es-do": 205,
+	"./es-do.js": 205,
+	"./es-us": 206,
+	"./es-us.js": 206,
+	"./es.js": 204,
+	"./et": 207,
+	"./et.js": 207,
+	"./eu": 208,
+	"./eu.js": 208,
+	"./fa": 209,
+	"./fa.js": 209,
+	"./fi": 210,
+	"./fi.js": 210,
+	"./fo": 211,
+	"./fo.js": 211,
+	"./fr": 212,
+	"./fr-ca": 213,
+	"./fr-ca.js": 213,
+	"./fr-ch": 214,
+	"./fr-ch.js": 214,
+	"./fr.js": 212,
+	"./fy": 215,
+	"./fy.js": 215,
+	"./gd": 216,
+	"./gd.js": 216,
+	"./gl": 217,
+	"./gl.js": 217,
+	"./gom-latn": 218,
+	"./gom-latn.js": 218,
+	"./gu": 219,
+	"./gu.js": 219,
+	"./he": 220,
+	"./he.js": 220,
+	"./hi": 221,
+	"./hi.js": 221,
+	"./hr": 222,
+	"./hr.js": 222,
+	"./hu": 223,
+	"./hu.js": 223,
+	"./hy-am": 224,
+	"./hy-am.js": 224,
+	"./id": 225,
+	"./id.js": 225,
+	"./is": 226,
+	"./is.js": 226,
+	"./it": 227,
+	"./it.js": 227,
+	"./ja": 228,
+	"./ja.js": 228,
+	"./jv": 229,
+	"./jv.js": 229,
+	"./ka": 230,
+	"./ka.js": 230,
+	"./kk": 231,
+	"./kk.js": 231,
+	"./km": 232,
+	"./km.js": 232,
+	"./kn": 233,
+	"./kn.js": 233,
+	"./ko": 234,
+	"./ko.js": 234,
+	"./ky": 235,
+	"./ky.js": 235,
+	"./lb": 236,
+	"./lb.js": 236,
+	"./lo": 237,
+	"./lo.js": 237,
+	"./lt": 238,
+	"./lt.js": 238,
+	"./lv": 239,
+	"./lv.js": 239,
+	"./me": 240,
+	"./me.js": 240,
+	"./mi": 241,
+	"./mi.js": 241,
+	"./mk": 242,
+	"./mk.js": 242,
+	"./ml": 243,
+	"./ml.js": 243,
+	"./mn": 244,
+	"./mn.js": 244,
+	"./mr": 245,
+	"./mr.js": 245,
+	"./ms": 246,
+	"./ms-my": 247,
+	"./ms-my.js": 247,
+	"./ms.js": 246,
+	"./mt": 248,
+	"./mt.js": 248,
+	"./my": 249,
+	"./my.js": 249,
+	"./nb": 250,
+	"./nb.js": 250,
+	"./ne": 251,
+	"./ne.js": 251,
+	"./nl": 252,
+	"./nl-be": 253,
+	"./nl-be.js": 253,
+	"./nl.js": 252,
+	"./nn": 254,
+	"./nn.js": 254,
+	"./pa-in": 255,
+	"./pa-in.js": 255,
+	"./pl": 256,
+	"./pl.js": 256,
+	"./pt": 257,
+	"./pt-br": 258,
+	"./pt-br.js": 258,
+	"./pt.js": 257,
+	"./ro": 259,
+	"./ro.js": 259,
+	"./ru": 260,
+	"./ru.js": 260,
+	"./sd": 261,
+	"./sd.js": 261,
+	"./se": 262,
+	"./se.js": 262,
+	"./si": 263,
+	"./si.js": 263,
+	"./sk": 264,
+	"./sk.js": 264,
+	"./sl": 265,
+	"./sl.js": 265,
+	"./sq": 266,
+	"./sq.js": 266,
+	"./sr": 267,
+	"./sr-cyrl": 268,
+	"./sr-cyrl.js": 268,
+	"./sr.js": 267,
+	"./ss": 269,
+	"./ss.js": 269,
+	"./sv": 270,
+	"./sv.js": 270,
+	"./sw": 271,
+	"./sw.js": 271,
+	"./ta": 272,
+	"./ta.js": 272,
+	"./te": 273,
+	"./te.js": 273,
+	"./tet": 274,
+	"./tet.js": 274,
+	"./tg": 275,
+	"./tg.js": 275,
+	"./th": 276,
+	"./th.js": 276,
+	"./tl-ph": 277,
+	"./tl-ph.js": 277,
+	"./tlh": 278,
+	"./tlh.js": 278,
+	"./tr": 279,
+	"./tr.js": 279,
+	"./tzl": 280,
+	"./tzl.js": 280,
+	"./tzm": 281,
+	"./tzm-latn": 282,
+	"./tzm-latn.js": 282,
+	"./tzm.js": 281,
+	"./ug-cn": 283,
+	"./ug-cn.js": 283,
+	"./uk": 284,
+	"./uk.js": 284,
+	"./ur": 285,
+	"./ur.js": 285,
+	"./uz": 286,
+	"./uz-latn": 287,
+	"./uz-latn.js": 287,
+	"./uz.js": 286,
+	"./vi": 288,
+	"./vi.js": 288,
+	"./x-pseudo": 289,
+	"./x-pseudo.js": 289,
+	"./yo": 290,
+	"./yo.js": 290,
+	"./zh-cn": 291,
+	"./zh-cn.js": 291,
+	"./zh-hk": 292,
+	"./zh-hk.js": 292,
+	"./zh-tw": 293,
+	"./zh-tw.js": 293
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -1665,6 +1675,7 @@ var MyApp = /** @class */ (function () {
                 console.log(hubId);
                 _this.mqttUnsubscribe(hubId);
             });
+            _this.backgroundMode.setDefaults({ silent: true });
             _this.backgroundMode.enable();
         });
     }
@@ -1731,10 +1742,9 @@ var MyApp = /** @class */ (function () {
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\Taylor\Documents\Websites\callerbot\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\callerbot\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_7__providers_authentication_authentication__["a" /* AuthenticationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_authentication_authentication__["a" /* AuthenticationProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_9__ionic_native_background_mode__["a" /* BackgroundMode */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__ionic_native_background_mode__["a" /* BackgroundMode */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_8__ionic_native_local_notifications__["a" /* LocalNotifications */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ionic_native_local_notifications__["a" /* LocalNotifications */]) === "function" && _j || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_7__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_9__ionic_native_background_mode__["a" /* BackgroundMode */], __WEBPACK_IMPORTED_MODULE_8__ionic_native_local_notifications__["a" /* LocalNotifications */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=app.component.js.map
@@ -1765,9 +1775,9 @@ var AppSettings = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__prayer_prayer__ = __webpack_require__(295);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__events_events__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__events_events__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__settings_settings__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__feedback_feedback__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__feedback_feedback__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_authentication_authentication__ = __webpack_require__(31);
