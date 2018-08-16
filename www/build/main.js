@@ -1245,11 +1245,14 @@ var MyApp = /** @class */ (function () {
     }
     MyApp.prototype.mqttSubscribe = function (hubId) {
         if (this.useNative) {
+            console.log("subscribing");
             mqtt.subscribe({
-                topic: "CHANNEL " + hubId,
-                qos: 3
+                topic: hubId,
+                qos: 2
             });
+            console.log("running callback");
             mqtt.on("subscribe", function (subscription) {
+                console.log("here");
                 console.log(subscription);
             }, function (e) {
                 console.log(e);
