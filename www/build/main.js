@@ -1201,12 +1201,14 @@ var MyApp = /** @class */ (function () {
                 });
                 mqtt.on("connect", function () {
                     console.log("connect success");
+                    alert("connected");
                     _this.storage.get("subscription").then(function (data) {
                         if (data) {
                             _this.mqttSubscribe(data.hubId);
                         }
                     });
                 }, function (status) {
+                    alert("failed: " + status);
                     console.log(status);
                 });
             }
