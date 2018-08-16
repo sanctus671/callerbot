@@ -25800,7 +25800,8 @@ ion-navbar.toolbar {
 }
 
 .subscribe-button.button {
-  width: 200px;
+  max-width: 300px;
+  width: 100%;
 }
 
 .channel-header {
