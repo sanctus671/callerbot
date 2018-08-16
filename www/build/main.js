@@ -1197,8 +1197,10 @@ var MyApp = /** @class */ (function () {
                     port: 8883,
                     username: "wentity",
                     password: 'wentity@1234',
-                    ssl: true
+                    ssl: true,
+                    offlineCaching: false
                 });
+                mqtt.connect();
                 mqtt.on("connect", function () {
                     console.log("connect success");
                     alert("connected");
