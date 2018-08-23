@@ -25766,6 +25766,27 @@ ion-navbar.toolbar {
   color: white;
 }
 
+.offline-status {
+  background-color: black;
+  color: white;
+  margin-left: -17px;
+  width: calc(100% + 34px);
+  margin-top: -16px;
+  margin-bottom: 15px;
+  text-align: center;
+  padding: 5px 10px;
+}
+
+.offline-status ion-spinner {
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+}
+
+.offline-status ion-spinner circle {
+  stroke: White;
+}
+
 .subscribe-form h2 {
   color: white;
   margin-top: 30px;
