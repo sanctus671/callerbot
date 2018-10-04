@@ -24,7 +24,8 @@
     "@ionic-native/core": "~4.10.0",
     "@ionic-native/geolocation": "^4.11.0",
     "@ionic-native/in-app-browser": "^4.11.0",
-    "@ionic-native/local-notifications": "^4.5.2",
+    "@ionic-native/local-notifications": "^4.4.2",
+    "@ionic-native/native-geocoder": "^4.15.0",
     "@ionic-native/network": "^4.12.0",
     "@ionic-native/splash-screen": "~4.10.0",
     "@ionic-native/status-bar": "~4.10.0",
@@ -33,10 +34,11 @@
     "cordova-plugin-background-mode": "^0.7.2",
     "cordova-plugin-geolocation": "^4.0.1",
     "cordova-plugin-inappbrowser": "^3.0.0",
-    "de.appplant.cordova.plugin.local-notification": "^0.8.5",
     "cordova-plugin-mqtt": "^0.3.8",
     "cordova-plugin-mqtt-pahojs": "^1.5.8",
+    "cordova-plugin-nativegeocoder": "^3.1.2",
     "cordova-plugin-network-information": "^2.0.1",
+    "de.appplant.cordova.plugin.local-notification": "^0.8.5",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "moment": "^2.22.2",
@@ -60,7 +62,8 @@
       "cordova-plugin-background-mode": {},
       "cordova-plugin-mqtt-pahojs": {},
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-network-information": {}
+      "cordova-plugin-network-information": {},
+      "cordova-plugin-nativegeocoder": {}
     }
   }
 }
