@@ -103,8 +103,10 @@
     <gap:plugin name="cordova-plugin-statusbar" source="npm" version="^2.3.0" />
     <gap:plugin spec="https://github.com/brodybits/cordova-sqlite-legacy-build-support" />
     <gap:plugin spec="https://github.com/sanctus671/cordova-plugin-fastrde-mqtt#master" />
- 
-    <gap:plugin name="de.appplant.cordova.plugin.local-notification" source="npm" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="We use your location to show you the best channels to subscribe to" />
+    </plugin>
+    
     <plugin name="cordova-plugin-background-mode" spec="^0.7.2" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
