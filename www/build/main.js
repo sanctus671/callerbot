@@ -902,23 +902,23 @@ var PrayerPage = /** @class */ (function () {
         this.storage.get("latestSalatTimeId").then(function (id) {
             if (id !== latestSalatTimeId) {
                 //is an update salat time
-                alert("An update to your Salat times has been made.");
                 _this.localNotifications.schedule({
                     id: 1,
                     title: 'Update Received',
                     text: 'An update to your Salat times has been made.',
                     smallIcon: 'res://small_icon'
                 });
+                alert("An update to your Salat times has been made.");
             }
             else {
                 //is an announcement
-                alert("A new announcement has been made.");
                 _this.localNotifications.schedule({
                     id: 1,
                     title: 'Update Received',
                     text: 'A new announcement has been made.',
                     smallIcon: 'res://small_icon'
                 });
+                alert("A new announcement has been made.");
             }
             _this.storage.set("latestSalatTimeId", latestSalatTimeId);
         });
