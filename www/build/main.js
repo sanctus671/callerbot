@@ -72,24 +72,7 @@ var EventsPage = /** @class */ (function () {
         if (this.subscribedChannel) {
             this.channelProvider.getAnnouncements(this.subscribedChannel.hubId).then(function (announcements) {
                 _this.ngZone.run(function () {
-                    var newAnnouncements = _this.filterAnnouncements(announcements);
-                    _this.storage.get("lastAnnouncementId").then(function (id) {
-                        if (id && announcements.length > 0 && announcements[announcements.length - 1].eventId !== id) {
-                            console.log("do announcement alert");
-                            _this.localNotifications.schedule({
-                                id: 99,
-                                title: "New Announcement",
-                                text: "From " + _this.subscribedChannel.channelName,
-                            });
-                        }
-                        if (announcements.length > 0) {
-                            _this.storage.set("lastAnnouncementId", announcements[announcements.length - 1].eventId);
-                        }
-                        else {
-                            _this.storage.set("lastAnnouncementId", 0);
-                        }
-                    });
-                    _this.announcements = newAnnouncements;
+                    _this.announcements = _this.filterAnnouncements(announcements);
                 });
                 _this.storage.set("announcements", announcements);
                 console.log(announcements);
@@ -751,7 +734,7 @@ var PrayerPage = /** @class */ (function () {
             if (data) {
                 console.log(data);
                 _this.subscribedChannel = data;
-                _this.getSalatTimes();
+                _this.getSalatTimes(false);
             }
         });
         this.storage.get("subscription").then(function (data) {
@@ -779,11 +762,11 @@ var PrayerPage = /** @class */ (function () {
             }
         });
         this.events.subscribe("mqtt:message", function () {
-            _this.getSalatTimes();
+            _this.getSalatTimes(true);
         });
         this.connectionStatus = this.connectionProvider.getConnectionStatus();
         this.events.subscribe("network:online", function () {
-            _this.getSalatTimes();
+            _this.getSalatTimes(false);
             _this.getCountries();
             _this.ngZone.run(function () {
                 _this.connectionStatus = true;
@@ -805,7 +788,7 @@ var PrayerPage = /** @class */ (function () {
     }
     PrayerPage.prototype.ionViewDidEnter = function () {
         var _this = this;
-        this.getSalatTimes();
+        this.getSalatTimes(false);
         this.ngZone.run(function () {
             _this.connectionStatus = _this.connectionProvider.getConnectionStatus();
         });
@@ -835,7 +818,6 @@ var PrayerPage = /** @class */ (function () {
                         }
                     }
                 }
-                _this.getCountries();
             })
                 .catch(function (error) { return console.log(error); });
         }).catch(function (error) {
@@ -870,13 +852,24 @@ var PrayerPage = /** @class */ (function () {
             }
         });
     };
-    PrayerPage.prototype.getSalatTimes = function () {
+    PrayerPage.prototype.getSalatTimes = function (isMqtt) {
         var _this = this;
         if (this.subscribedChannel) {
             this.channelProvider.getSalatTimes(this.subscribedChannel.hubId).then(function (times) {
+                console.log(times);
                 _this.ngZone.run(function () {
                     _this.prayerTimes = _this.filterPrayers(times);
                 });
+                var latestSalatTimeId = 0;
+                if (times && times.length > 0) {
+                    latestSalatTimeId = times[0].salatTimeId;
+                }
+                if (isMqtt) {
+                    _this.generateMqttNotification(latestSalatTimeId);
+                }
+                else {
+                    _this.storage.set("latestSalatTimeId", latestSalatTimeId);
+                }
                 _this.storage.set("salatTimes", times);
                 _this.generateNotifications();
             }).catch(function () {
@@ -903,6 +896,32 @@ var PrayerPage = /** @class */ (function () {
             }
         }
         return filteredPrayers;
+    };
+    PrayerPage.prototype.generateMqttNotification = function (latestSalatTimeId) {
+        var _this = this;
+        this.storage.get("latestSalatTimeId").then(function (id) {
+            if (id !== latestSalatTimeId) {
+                //is an update salat time
+                alert("An update to your Salat times has been made.");
+                _this.localNotifications.schedule({
+                    id: 1,
+                    title: 'Update Received',
+                    text: 'An update to your Salat times has been made.',
+                    smallIcon: 'res://small_icon'
+                });
+            }
+            else {
+                //is an announcement
+                alert("A new announcement has been made.");
+                _this.localNotifications.schedule({
+                    id: 1,
+                    title: 'Update Received',
+                    text: 'A new announcement has been made.',
+                    smallIcon: 'res://small_icon'
+                });
+            }
+            _this.storage.set("latestSalatTimeId", latestSalatTimeId);
+        });
     };
     PrayerPage.prototype.generateNotifications = function () {
         var _this = this;
@@ -1018,7 +1037,7 @@ var PrayerPage = /** @class */ (function () {
                             _this.storage.set("subscriptions", _this.subscriptions);
                             _this.storage.set("subscription", _this.subscription);
                             _this.events.publish("channel:subscribed", channel.hubId);
-                            _this.getSalatTimes();
+                            _this.getSalatTimes(false);
                         }).catch(function () {
                         });
                     }
@@ -1036,7 +1055,7 @@ var PrayerPage = /** @class */ (function () {
         this.subscribedChannel = channel;
         this.storage.set("subscribedChannel", channel);
         this.storage.set("subscription", this.subscription);
-        this.getSalatTimes();
+        this.getSalatTimes(false);
         this.events.publish("channel:subscribed", channel.hubId);
     };
     PrayerPage.prototype.openAddChannel = function () {
@@ -2036,12 +2055,15 @@ var MyApp = /** @class */ (function () {
             mqtt.on("message", function (message) {
                 console.log(message);
                 _this.events.publish("mqtt:message", { message: message });
-                alert("An update to your Salat times or an announcement has been made.");
-                _this.localNotifications.schedule({
-                    id: 1,
-                    title: 'Update Received',
-                    text: 'An update to your Salat times or an announcement has been made.'
+                //alert("An update to your Salat times or an announcement has been made.");    
+                /*
+                this.localNotifications.schedule({
+                  id: 1,
+                  title: 'Update Received',
+                  text: 'An update to your Salat times or an announcement has been made.',
+                  smallIcon: 'res://small_icon'
                 });
+                */
             });
         }
         else if (this.client) {
