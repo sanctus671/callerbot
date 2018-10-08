@@ -379,8 +379,6 @@ var SignUpPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_authentication_authentication__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_local_notifications__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -395,13 +393,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
+/**
+ * Generated class for the SettingsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 var SettingsPage = /** @class */ (function () {
-    function SettingsPage(navCtrl, navParams, platform, events, authProvider, storage, alertCtrl, localNotifications) {
+    function SettingsPage(navCtrl, navParams, events, authProvider, storage, alertCtrl, localNotifications) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.platform = platform;
         this.events = events;
         this.authProvider = authProvider;
         this.storage = storage;
@@ -454,40 +456,26 @@ var SettingsPage = /** @class */ (function () {
         });
     };
     SettingsPage.prototype.testNotifications = function (notificationType) {
-        var newDate = __WEBPACK_IMPORTED_MODULE_5_moment__().add(3, "minutes");
-        console.log(new Date(newDate.year(), newDate.month(), newDate.date(), newDate.hour(), newDate.minutes()));
-        var sound = null;
+        var sound = "";
         if (notificationType === "Azan A") {
             sound = 'file://assets/audio/Azan-A.mp3';
         }
         else if (notificationType === "Azan S") {
             sound = 'file://assets/audio/Azan-S.mp3';
         }
-        if (this.platform.is("cordova")) {
-            var notification = {
-                id: 2,
-                title: "Test notification 2",
-                text: "This is a test",
-                smallIcon: 'res://small_icon',
-                sound: sound,
-                trigger: { at: new Date(newDate.year(), newDate.month(), newDate.date(), newDate.hour(), newDate.minutes()) }
-            };
-            cordova.plugins.notification.local.schedule(notification);
-            cordova.plugins.notification.local.schedule({
-                id: 3,
-                title: "Test notification 3",
-                text: "This is a test",
-                smallIcon: 'res://small_icon',
-                sound: sound,
-                led: 'FF0000',
-            });
-        }
+        this.localNotifications.schedule({
+            id: 1,
+            title: "Test notification",
+            text: "This is a test",
+            smallIcon: 'res://small_icon',
+            sound: sound
+        });
     };
     SettingsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-settings',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\callerbot\src\pages\settings\settings.html"*/'<ion-content>\n    \n    \n    <ion-list class="login-form" ion-card>\n\n        <ion-item>\n            <ion-label floating color="light">\n                <ion-icon name="person"></ion-icon> \n                Name\n            </ion-label>\n            <ion-input clearInput type="text" [(ngModel)]="user.appUserName"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating color="light">\n                <ion-icon name="mail"></ion-icon> \n                Email\n            </ion-label>\n            <ion-input clearInput type="text" [(ngModel)]="user.email"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating color="light">\n                <ion-icon name="call"></ion-icon> \n                Phone Number\n            </ion-label>\n            <ion-input clearInput type="text" [(ngModel)]="user.mobile"></ion-input>\n        </ion-item>    \n        \n        <ion-item>\n          <ion-label>Play Sound At Prayer Time</ion-label>\n          <ion-select [(ngModel)]="settings.sound">\n            <ion-option value="sound">Play Sounds</ion-option>\n            <ion-option value="default">Play Default Notification</ion-option>\n          </ion-select>\n        </ion-item>        \n        \n        <ion-item>\n            <ion-label floating color="light"> \n                <ion-icon name="key"></ion-icon> \n                Password\n            </ion-label>\n            <ion-input clearInput type="password" [(ngModel)]="user.password"></ion-input>\n        </ion-item> \n        \n        <button ion-button outline color=\'light\' round class="login-button signup-button" (click)="save()" [disabled]="properties.loading">\n            Save\n            <ion-spinner *ngIf="properties.loading" color=\'light\' diamter=\'10\'></ion-spinner>\n        </button>\n        \n        <p class="login-error" *ngIf="properties.error">{{properties.error}}</p>\n         \n        \n        <div class="test-notifications">\n            <p>Use the buttons below to check notifications are working correctly.</p>\n            \n        \n            <button ion-button (click)="testNotifications(\'Azan A\')">Azan A Notification</button>\n            <button ion-button (click)="testNotifications(\'Azan S\')">Azan S Notification</button>\n            <button ion-button (click)="testNotifications(\'None\')">Standard Notification</button>            \n            \n            \n        </div>   \n        \n        \n    </ion-list>    \n    \n    \n    \n\n</ion-content>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\callerbot\src\pages\settings\settings.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_2__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_local_notifications__["a" /* LocalNotifications */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_2__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_local_notifications__["a" /* LocalNotifications */]])
     ], SettingsPage);
     return SettingsPage;
 }());
@@ -956,7 +944,7 @@ var PrayerPage = /** @class */ (function () {
             var prayerExpiry = __WEBPACK_IMPORTED_MODULE_5_moment__((prayer.expireDateTime + " " + prayer.adzanTime), 'DD-MM-YYYY hh:mm A');
             var days = prayerExpiry.diff(prayerTime, 'days') + 1;
             var today = __WEBPACK_IMPORTED_MODULE_5_moment__();
-            var sound = null;
+            var sound = "";
             if (prayer.prayerName === "Fajar" && (this.settings && this.settings.sound !== "default")) {
                 sound = 'file://assets/audio/Azan-S.mp3';
             }
@@ -965,15 +953,13 @@ var PrayerPage = /** @class */ (function () {
             }
             for (var i = 0; i < days; i++) {
                 if (prayerTime.isAfter(today)) {
-                    console.log(new Date(prayerTime.year(), prayerTime.month(), prayerTime.date(), prayerTime.hour(), prayerTime.minutes()));
                     this.localNotifications.schedule({
                         id: id,
                         title: prayer.prayerName + " prayer (Adzan)",
                         text: "Starts at " + prayer.adzanTime.trim(),
                         smallIcon: 'res://small_icon',
                         sound: sound,
-                        at: new Date(prayerTime.year(), prayerTime.month(), prayerTime.date(), prayerTime.hour(), prayerTime.minutes()),
-                        led: 'FF0000'
+                        trigger: { at: new Date(prayerTime.year(), prayerTime.month(), prayerTime.date(), prayerTime.hour(), prayerTime.minutes()) }
                     });
                     id++;
                 }
@@ -983,8 +969,8 @@ var PrayerPage = /** @class */ (function () {
                         title: prayer.prayerName + " prayer (Ikhama)",
                         text: "Starts at " + prayer.ikhamaTime.trim(),
                         smallIcon: 'res://small_icon',
-                        at: new Date(prayerTime2.year(), prayerTime2.month(), prayerTime2.date(), prayerTime2.hour(), prayerTime2.minutes()),
-                        led: 'FF0000'
+                        sound: sound,
+                        trigger: { at: new Date(prayerTime2.year(), prayerTime2.month(), prayerTime2.date(), prayerTime2.hour(), prayerTime2.minutes()) }
                     });
                     id++;
                 }
