@@ -473,7 +473,7 @@ var SettingsPage = /** @class */ (function () {
             id: 2,
             title: "Test notification 2",
             text: "This is a test",
-            trigger: { at: new Date(newDate.year(), newDate.month(), newDate.date(), newDate.hour(), newDate.minutes()) },
+            at: new Date(newDate.year(), newDate.month(), newDate.date(), newDate.hour(), newDate.minutes()),
             smallIcon: 'res://small_icon',
             sound: sound,
             led: 'FF0000',
@@ -482,7 +482,7 @@ var SettingsPage = /** @class */ (function () {
             id: 1,
             title: "Test notification 1",
             text: "This is a test",
-            trigger: { at: new Date(new Date().getTime() + 36000) },
+            at: new Date(new Date().getTime() + 36000),
             smallIcon: 'res://small_icon',
             sound: sound,
             led: 'FF0000',
@@ -985,7 +985,7 @@ var PrayerPage = /** @class */ (function () {
                         text: "Starts at " + prayer.adzanTime.trim(),
                         smallIcon: 'res://small_icon',
                         sound: sound,
-                        trigger: { at: new Date(prayerTime.year(), prayerTime.month(), prayerTime.date(), prayerTime.hour(), prayerTime.minutes()) },
+                        at: new Date(prayerTime.year(), prayerTime.month(), prayerTime.date(), prayerTime.hour(), prayerTime.minutes()),
                         led: 'FF0000'
                     });
                     id++;
@@ -996,7 +996,7 @@ var PrayerPage = /** @class */ (function () {
                         title: prayer.prayerName + " prayer (Ikhama)",
                         text: "Starts at " + prayer.ikhamaTime.trim(),
                         smallIcon: 'res://small_icon',
-                        trigger: { at: new Date(prayerTime2.year(), prayerTime2.month(), prayerTime2.date(), prayerTime2.hour(), prayerTime2.minutes()) },
+                        at: new Date(prayerTime2.year(), prayerTime2.month(), prayerTime2.date(), prayerTime2.hour(), prayerTime2.minutes()),
                         led: 'FF0000'
                     });
                     id++;
