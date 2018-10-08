@@ -460,6 +460,8 @@ var SettingsPage = /** @class */ (function () {
     };
     SettingsPage.prototype.testNotifications = function (notificationType) {
         var newDate = __WEBPACK_IMPORTED_MODULE_5_moment__().add(3, "minutes");
+        console.log(new Date(newDate.year(), newDate.month(), newDate.date(), newDate.hour(), newDate.minutes()));
+        console.log(new Date(new Date().getTime() + 36000));
         var sound = null;
         if (notificationType === "Azan A") {
             sound = 'file://assets/audio/Azan-A.mp3';
@@ -481,6 +483,14 @@ var SettingsPage = /** @class */ (function () {
             title: "Test notification 1",
             text: "This is a test",
             trigger: { at: new Date(new Date().getTime() + 36000) },
+            smallIcon: 'res://small_icon',
+            sound: sound,
+            led: 'FF0000',
+        });
+        this.localNotifications.schedule({
+            id: 3,
+            title: "Test notification 3",
+            text: "This is a test",
             smallIcon: 'res://small_icon',
             sound: sound,
             led: 'FF0000',
