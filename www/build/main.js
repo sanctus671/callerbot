@@ -934,8 +934,11 @@ var PrayerPage = /** @class */ (function () {
             if (notPrayerTime > -1) {
                 ids.splice(notPrayerTime, 1);
             }
-            _this.localNotifications.cancel(ids);
-            _this.scheduleNotifications();
+            _this.localNotifications.cancel(ids).then(function () {
+                _this.scheduleNotifications();
+            }).catch(function () {
+                _this.scheduleNotifications();
+            });
         }).catch(function () {
             _this.scheduleNotifications();
         });
