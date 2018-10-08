@@ -459,7 +459,7 @@ var SettingsPage = /** @class */ (function () {
         });
     };
     SettingsPage.prototype.testNotifications = function (notificationType) {
-        var newDate = __WEBPACK_IMPORTED_MODULE_5_moment__().add(1, "minutes");
+        var newDate = __WEBPACK_IMPORTED_MODULE_5_moment__().add(3, "minutes");
         var sound = null;
         if (notificationType === "Azan A") {
             sound = 'file://assets/audio/Azan-A.mp3';
@@ -468,10 +468,19 @@ var SettingsPage = /** @class */ (function () {
             sound = 'file://assets/audio/Azan-S.mp3';
         }
         this.localNotifications.schedule({
-            id: 1,
-            title: "Test notification",
+            id: 2,
+            title: "Test notification 2",
             text: "This is a test",
             trigger: { at: new Date(newDate.year(), newDate.month(), newDate.date(), newDate.hour(), newDate.minutes()) },
+            smallIcon: 'res://small_icon',
+            sound: sound,
+            led: 'FF0000',
+        });
+        this.localNotifications.schedule({
+            id: 1,
+            title: "Test notification 1",
+            text: "This is a test",
+            trigger: { at: new Date(new Date().getTime() + 36000) },
             smallIcon: 'res://small_icon',
             sound: sound,
             led: 'FF0000',
