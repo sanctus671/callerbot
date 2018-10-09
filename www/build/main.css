@@ -25900,6 +25900,16 @@ ion-navbar.toolbar {
   padding-bottom: 80px;
 }
 
+.content-loading {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.content-loading .spinner circle {
+  stroke: #FFFFFF;
+}
+
 .test-notifications {
   text-align: center;
   color: white;
