@@ -30,6 +30,7 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="SplashScreenBackgroundColor" value="#d44735" />
+    <preference name="WKSuspendInBackground" value="false" />
     <platform name="android">
         <preference name="StatusBarStyle" value="lightcontent" />
         <preference name="StatusBarBackgroundColor" value="#952517" />
@@ -104,7 +105,7 @@
     <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
     <plugin name="cordova-plugin-device" spec="2.0.2" />
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
-    <plugin name="cordova-plugin-ionic-webview" spec="1.1.19" />
+    <plugin name="cordova-plugin-ionic-webview" spec="1.2.1" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="2.0.5" />
     <gap:plugin name="cordova-plugin-statusbar" source="npm" version="^2.3.0" />
     <gap:plugin spec="https://github.com/brodybits/cordova-sqlite-legacy-build-support" />

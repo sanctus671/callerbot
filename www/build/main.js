@@ -472,6 +472,8 @@ var SettingsPage = /** @class */ (function () {
             title: "Test notification",
             text: "This is a test",
             smallIcon: 'res://small_icon',
+            foreground: true,
+            priority: 1,
             sound: sound
         });
     };
@@ -982,6 +984,8 @@ var PrayerPage = /** @class */ (function () {
                         text: "Starts at " + prayer.adzanTime.trim(),
                         smallIcon: 'res://small_icon',
                         sound: sound,
+                        foreground: true,
+                        priority: 1,
                         trigger: { at: new Date(prayerTime.year(), prayerTime.month(), prayerTime.date(), prayerTime.hour(), prayerTime.minutes()) }
                     });
                     id++;
@@ -993,6 +997,8 @@ var PrayerPage = /** @class */ (function () {
                         text: "Starts at " + prayer.ikhamaTime.trim(),
                         smallIcon: 'res://small_icon',
                         sound: sound,
+                        foreground: true,
+                        priority: 1,
                         trigger: { at: new Date(prayerTime2.year(), prayerTime2.month(), prayerTime2.date(), prayerTime2.hour(), prayerTime2.minutes()) }
                     });
                     id++;
