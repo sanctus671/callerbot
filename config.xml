@@ -117,7 +117,7 @@
     <plugin name="cordova-android-support-gradle-release" spec="1.3.0">
         <variable name="ANDROID_SUPPORT_VERSION" value="26.+" />
     </plugin>    
-    <gap:plugin spec="https://github.com/timkellypa#android-oreo-custom-sound" />
+    <gap:plugin spec="https://github.com/timkellypa/cordova-plugin-local-notifications#android-oreo-custom-sound" />
     <gap:plugin spec="https://github.com/thomas550i/cordova-plugin-doze-Optimize" />
     <plugin name="cordova-plugin-background-mode" spec="^0.7.2" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
