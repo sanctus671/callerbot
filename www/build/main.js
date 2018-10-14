@@ -839,16 +839,6 @@ var PrayerPage = /** @class */ (function () {
                 vibrate: true,
                 trigger: { every: { hour: 17, minute: 0 } }
             });
-            cordova.plugins.notification.local.schedule({
-                id: 3,
-                title: 'Checking Salat times',
-                text: 'Updateing your Salat times in the background...',
-                smallIcon: 'res://small_icon',
-                channel: "pingchannel",
-                vibrate: false,
-                sound: false,
-                trigger: { every: { minute: 10 } }
-            });
         }
     };
     PrayerPage.prototype.setLocation = function () {
@@ -1086,7 +1076,7 @@ var PrayerPage = /** @class */ (function () {
         });
     };
     PrayerPage.prototype.scheduleNotifications = function () {
-        var id = 4;
+        var id = 3;
         for (var _i = 0, _a = this.prayerTimes; _i < _a.length; _i++) {
             var prayer = _a[_i];
             var prayerTime = __WEBPACK_IMPORTED_MODULE_5_moment__((prayer.activateDateTime + " " + prayer.adzanTime), 'DD-MM-YYYY hh:mm A');
@@ -2210,7 +2200,7 @@ var MyApp = /** @class */ (function () {
                 console.log(hubId);
                 _this.mqttUnsubscribe(hubId);
             });
-            _this.backgroundMode.setDefaults({ silent: true });
+            _this.backgroundMode.setDefaults({ silent: false, title: "Monitoring Updates", text: "Checking for updates to your Salat times in the background..." });
             _this.backgroundMode.enable();
             _this.events.subscribe("network:online", function () {
                 setTimeout(function () {
