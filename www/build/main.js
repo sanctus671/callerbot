@@ -538,7 +538,7 @@ webpackEmptyAsyncContext.id = 129;
 
 var map = {
 	"../pages/events/events.module": [
-		428,
+		429,
 		5
 	],
 	"../pages/feedback/feedback.module": [
@@ -546,7 +546,7 @@ var map = {
 		4
 	],
 	"../pages/forgot-password/forgot-password.module": [
-		431,
+		428,
 		3
 	],
 	"../pages/login/login.module": [
@@ -554,11 +554,11 @@ var map = {
 		2
 	],
 	"../pages/settings/settings.module": [
-		430,
+		431,
 		1
 	],
 	"../pages/sign-up/sign-up.module": [
-		429,
+		430,
 		0
 	]
 };
@@ -1652,10 +1652,10 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/feedback/feedback.module#FeedbackPageModule', name: 'FeedbackPage', segment: 'feedback', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/forgot-password/forgot-password.module#ForgotPasswordPageModule', name: 'ForgotPasswordPage', segment: 'forgot-password', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/events/events.module#EventsPageModule', name: 'EventsPage', segment: 'events', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sign-up/sign-up.module#SignUpPageModule', name: 'SignUpPage', segment: 'sign-up', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/forgot-password/forgot-password.module#ForgotPasswordPageModule', name: 'ForgotPasswordPage', segment: 'forgot-password', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
@@ -2215,7 +2215,7 @@ var MyApp = /** @class */ (function () {
                 }, function () {
                     console.log('Failed to set');
                 });
-                _this.platform.pause.subscribe(function () { _this.backgroundMode.moveToBackground(); });
+                //this.platform.pause.subscribe(() => { this.backgroundMode.moveToBackground(); });                
             }
             _this.events.subscribe("network:online", function () {
                 setTimeout(function () {
