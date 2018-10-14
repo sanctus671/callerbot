@@ -1,6 +1,6 @@
 webpackJsonp([6],{
 
-/***/ 112:
+/***/ 113:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ webpackJsonp([6],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals_announcement_announcement__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals_announcement_announcement__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_channel_channel__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
@@ -124,14 +124,14 @@ var EventsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 113:
+/***/ 114:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeedbackPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_feedback_feedback__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_feedback_feedback__ = __webpack_require__(299);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(20);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -208,7 +208,7 @@ var FeedbackPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 114:
+/***/ 115:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -277,7 +277,7 @@ var ForgotPasswordPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 115:
+/***/ 116:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -373,7 +373,7 @@ var SignUpPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 116:
+/***/ 117:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -515,7 +515,7 @@ var SettingsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 128:
+/***/ 129:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -528,11 +528,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 128;
+webpackEmptyAsyncContext.id = 129;
 
 /***/ }),
 
-/***/ 170:
+/***/ 171:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -572,19 +572,19 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 170;
+webpackAsyncContext.id = 171;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 171:
+/***/ 172:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnnouncementModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_in_app_browser__ = __webpack_require__(173);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -624,7 +624,7 @@ var AnnouncementModal = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 298:
+/***/ 299:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -688,7 +688,7 @@ var FeedbackProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 299:
+/***/ 300:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -702,8 +702,8 @@ var FeedbackProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_local_notifications__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_connection_connection__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__modals_add_channel_add_channel__ = __webpack_require__(300);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_geolocation__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__modals_add_channel_add_channel__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_geolocation__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_native_geocoder__ = __webpack_require__(302);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -827,15 +827,17 @@ var PrayerPage = /** @class */ (function () {
         });
     };
     PrayerPage.prototype.setupDailyNotification = function () {
-        cordova.plugins.notification.local.schedule({
-            id: 2,
-            title: 'Check your Salat times',
-            text: 'Open the app to ensure you have the most up to date Salat times',
-            smallIcon: 'res://small_icon',
-            channel: "channel1",
-            vibrate: true,
-            trigger: { every: { hour: 17, minute: 0 } }
-        });
+        if (this.platform.is("cordova")) {
+            cordova.plugins.notification.local.schedule({
+                id: 2,
+                title: 'Check your Salat times',
+                text: 'Open the app to ensure you have the most up to date Salat times',
+                smallIcon: 'res://small_icon',
+                channel: "channel1",
+                vibrate: true,
+                trigger: { every: { hour: 17, minute: 0 } }
+            });
+        }
     };
     PrayerPage.prototype.setLocation = function () {
         var _this = this;
@@ -1177,6 +1179,24 @@ var PrayerPage = /** @class */ (function () {
                             _this.getSalatTimes(false);
                         }).catch(function () {
                         });
+                        //make sure app can run in the background
+                        if (_this.platform.is("cordova")) {
+                            cordova.plugins.DozeOptimize.IsIgnoringBatteryOptimizations(function (response) {
+                                console.log("IsIgnoringBatteryOptimizations: " + response);
+                                if (response == "false") {
+                                    cordova.plugins.DozeOptimize.RequestOptimizations(function (response) {
+                                        console.log(response);
+                                    }, function (error) {
+                                        console.error("BatteryOptimizations Request Error" + error);
+                                    });
+                                }
+                                else {
+                                    console.log("Application already Ignoring Battery Optimizations");
+                                }
+                            }, function (error) {
+                                console.error("IsIgnoringBatteryOptimizations Error" + error);
+                            });
+                        }
                     }
                 }
             ]
@@ -1192,6 +1212,7 @@ var PrayerPage = /** @class */ (function () {
         this.subscribedChannel = channel;
         this.storage.set("subscribedChannel", channel);
         this.storage.set("subscription", this.subscription);
+        this.prayerTimes = [];
         this.getSalatTimes(false);
         this.events.publish("channel:subscribed", channel.hubId);
     };
@@ -1227,10 +1248,11 @@ var PrayerPage = /** @class */ (function () {
                 {
                     text: 'Yes',
                     handler: function () {
+                        _this.loading = true;
                         _this.storage.remove("subscription");
                         _this.storage.remove("subscribedChannel");
                         _this.subscribedChannel = null;
-                        var id = _this.subscription["subscriptionId"];
+                        var id = _this.subscription["subscriberId"];
                         var hubId = _this.subscription["hubId"];
                         console.log(id);
                         console.log(_this.subscription);
@@ -1240,6 +1262,7 @@ var PrayerPage = /** @class */ (function () {
                             _this.subscription = { cityId: "", hubId: "" };
                             _this.getSubscriptions();
                         }).catch(function () {
+                            _this.getSubscriptions();
                         });
                     }
                 }
@@ -1249,19 +1272,18 @@ var PrayerPage = /** @class */ (function () {
     };
     PrayerPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-prayer',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\callerbot\src\pages\prayer\prayer.html"*/'\n\n<ion-content padding>\n    \n    <div class="offline-status" *ngIf="!connectionStatus">\n        <ion-spinner></ion-spinner>\n        Checking for internet connection...    \n    </div>    \n    \n    <div class="subscribe-form" *ngIf="!subscribedChannel && !loading">\n        <div class="login-top-section signup-top-section">\n\n            <img class="logo" src="assets/imgs/logo-light.png" />\n            <h2>Please choose your location</h2>\n        </div>    \n\n        <ion-list class="login-form" ion-card>\n            \n            <ion-item>\n                <ion-label floating color="light">\n                    <ion-icon name="pin"></ion-icon> \n                    Region\n                </ion-label>\n                <ion-select [(ngModel)]="region" (ionChange)="getCities()">\n                    <ion-option value="{{region.regionId}}" *ngFor="let region of regions">{{region.regionName}}</ion-option>\n                </ion-select>\n            </ion-item>        \n            \n\n            <ion-item *ngIf="region">\n                <ion-label floating color="light">\n                    <ion-icon name="pin"></ion-icon> \n                    City\n                </ion-label>\n                <ion-select [(ngModel)]="subscription.cityId" (ionChange)="getChannels()">\n                    <ion-option value="{{city.cityId}}" *ngFor="let city of cities">{{city.cityName}}</ion-option>\n                </ion-select>\n            </ion-item>\n           \n\n        </ion-list>\n    \n        <div class="choose-channel" *ngIf="subscription.cityId">\n            <h2>Please choose your channel</h2>\n\n            <div class="channels">\n                <button ion-button  *ngFor="let channel of channels" [outline]="subscription.hubId !== channel.hubId" color=\'light\' round class="subscribe-button" (click)="selectChannel(channel)">\n                    <ion-icon name="heart"></ion-icon> \n                    {{channel.channelName}}\n                </button>                    \n            </div>\n        \n        </div>\n        \n    </div>\n    \n    <div *ngIf="!channelLoading" class="channel-subscriptions">\n\n        <div *ngFor="let item of subscriptions">\n            \n            <ion-item class="channel-name-multiple" *ngIf="subscriptions.length > 1" (click)="changeSubscribedChannel(item)">\n                {{item.hub.channelName}}\n                <ion-icon [name]="subscribedChannel && item.hub && subscribedChannel.hubId === item.hub.hubId ? \'checkmark\' : \'add\'" item-end></ion-icon>\n            </ion-item>\n            \n\n            <div class="channel-feed" *ngIf="subscribedChannel && item.hub && subscribedChannel.hubId === item.hub.hubId" [ngClass]="{\'many-channels\':subscriptions.length > 1}">\n\n\n                <div class="channel-header">\n                    <img src="assets/imgs/prayer.png" />\n                    <h2>{{subscribedChannel.channelName}}</h2>\n                </div>\n\n                <div class="channel-items">\n\n                    <ion-row class="channel-item channel-headers">\n                        <ion-col>Prayer</ion-col>\n                        <ion-col>Adzan Time</ion-col>\n                        <ion-col>Ikhama Time</ion-col>\n                    </ion-row>    \n                    \n                    <div class="content-loading" *ngIf="loading">\n                        <ion-spinner></ion-spinner>\n                    </div>\n\n                    <ion-row class="channel-item" *ngFor="let prayerTime of prayerTimes">\n                        <ion-col>{{prayerTime.prayerName}}</ion-col>\n                        <ion-col>{{prayerTime.adzanTime}}</ion-col>\n                        <ion-col>{{prayerTime.ikhamaTime}}</ion-col>\n                        <div class="channel-remark" *ngIf="prayerTime.remark">{{prayerTime.remark}}</div>\n                    </ion-row>\n                </div>\n\n\n                <div class="channel-unsubscribe">\n                <button ion-button color=\'light\' outline round class="unsubscribe-button" (click)="unsubscribe()">\n                    <ion-icon name="notifications-off"></ion-icon> Unsubscribe\n                </button>            \n                </div>\n\n            </div>\n\n        </div>\n        \n    </div>\n    \n    <ion-fab right bottom *ngIf="subscribedChannel && subscribedChannel.hubId">\n      <button ion-fab (click)="openAddChannel()"><ion-icon name="add"></ion-icon></button>\n    </ion-fab>    \n</ion-content>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\callerbot\src\pages\prayer\prayer.html"*/
+            selector: 'page-prayer',template:/*ion-inline-start:"D:\Taylor\Documents\Websites\callerbot\src\pages\prayer\prayer.html"*/'\n\n<ion-content padding>\n    \n    <div class="offline-status" *ngIf="!connectionStatus">\n        <ion-spinner></ion-spinner>\n        Checking for internet connection...    \n    </div>    \n    \n    <div class="subscribe-form" *ngIf="!subscribedChannel && !loading && subscriptions.length < 1">\n        <div class="login-top-section signup-top-section">\n\n            <img class="logo" src="assets/imgs/logo-light.png" />\n            <h2>Please choose your location</h2>\n        </div>    \n\n        <ion-list class="login-form" ion-card>\n            \n            <ion-item>\n                <ion-label floating color="light">\n                    <ion-icon name="pin"></ion-icon> \n                    Region\n                </ion-label>\n                <ion-select [(ngModel)]="region" (ionChange)="getCities()">\n                    <ion-option value="{{region.regionId}}" *ngFor="let region of regions">{{region.regionName}}</ion-option>\n                </ion-select>\n            </ion-item>        \n            \n\n            <ion-item *ngIf="region">\n                <ion-label floating color="light">\n                    <ion-icon name="pin"></ion-icon> \n                    City\n                </ion-label>\n                <ion-select [(ngModel)]="subscription.cityId" (ionChange)="getChannels()">\n                    <ion-option value="{{city.cityId}}" *ngFor="let city of cities">{{city.cityName}}</ion-option>\n                </ion-select>\n            </ion-item>\n           \n\n        </ion-list>\n    \n        <div class="choose-channel" *ngIf="subscription.cityId">\n            <h2>Please choose your channel</h2>\n\n            <div class="channels">\n                <button ion-button  *ngFor="let channel of channels" [outline]="subscription.hubId !== channel.hubId" color=\'light\' round class="subscribe-button" (click)="selectChannel(channel)">\n                    <ion-icon name="heart"></ion-icon> \n                    {{channel.channelName}}\n                </button>                    \n            </div>\n        \n        </div>\n        \n    </div>\n    \n    <div *ngIf="!channelLoading" class="channel-subscriptions">\n\n        <div *ngFor="let item of subscriptions">\n            \n            <ion-item class="channel-name-multiple" *ngIf="subscriptions.length > 1" (click)="changeSubscribedChannel(item)">\n                {{item.hub.channelName}}\n                <ion-icon [name]="subscribedChannel && item.hub && subscribedChannel.hubId === item.hub.hubId ? \'checkmark\' : \'add\'" item-end></ion-icon>\n            </ion-item>\n            \n\n            <div class="channel-feed" *ngIf="subscribedChannel && item.hub && subscribedChannel.hubId === item.hub.hubId" [ngClass]="{\'many-channels\':subscriptions.length > 1}">\n\n\n                <div class="channel-header">\n                    <img src="assets/imgs/prayer.png" />\n                    <h2>{{subscribedChannel.channelName}}</h2>\n                </div>\n\n                <div class="channel-items">\n\n                    <ion-row class="channel-item channel-headers">\n                        <ion-col>Prayer</ion-col>\n                        <ion-col>Adzan Time</ion-col>\n                        <ion-col>Ikhama Time</ion-col>\n                    </ion-row>    \n                    \n                    <div class="content-loading" *ngIf="loading">\n                        <ion-spinner></ion-spinner>\n                    </div>\n\n                    <ion-row class="channel-item" *ngFor="let prayerTime of prayerTimes">\n                        <ion-col>{{prayerTime.prayerName}}</ion-col>\n                        <ion-col>{{prayerTime.adzanTime}}</ion-col>\n                        <ion-col>{{prayerTime.ikhamaTime}}</ion-col>\n                        <div class="channel-remark" *ngIf="prayerTime.remark">{{prayerTime.remark}}</div>\n                    </ion-row>\n                </div>\n\n\n                <div class="channel-unsubscribe">\n                <button ion-button color=\'light\' outline round class="unsubscribe-button" (click)="unsubscribe()">\n                    <ion-icon name="notifications-off"></ion-icon> Unsubscribe\n                </button>            \n                </div>\n\n            </div>\n\n        </div>\n        \n    </div>\n    \n    <ion-fab right bottom *ngIf="subscribedChannel && subscribedChannel.hubId">\n      <button ion-fab (click)="openAddChannel()"><ion-icon name="add"></ion-icon></button>\n    </ion-fab>    \n</ion-content>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\callerbot\src\pages\prayer\prayer.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_9__ionic_native_geolocation__["a" /* Geolocation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__ionic_native_geolocation__["a" /* Geolocation */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_10__ionic_native_native_geocoder__["a" /* NativeGeocoder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__ionic_native_native_geocoder__["a" /* NativeGeocoder */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__providers_country_country__["a" /* CountryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_country_country__["a" /* CountryProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__providers_channel_channel__["a" /* ChannelProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_channel_channel__["a" /* ChannelProvider */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_local_notifications__["a" /* LocalNotifications */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_local_notifications__["a" /* LocalNotifications */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgZone */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_7__providers_connection_connection__["a" /* ConnectionProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_connection_connection__["a" /* ConnectionProvider */]) === "function" && _o || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_9__ionic_native_geolocation__["a" /* Geolocation */], __WEBPACK_IMPORTED_MODULE_10__ionic_native_native_geocoder__["a" /* NativeGeocoder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_2__providers_country_country__["a" /* CountryProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_channel_channel__["a" /* ChannelProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_local_notifications__["a" /* LocalNotifications */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgZone */], __WEBPACK_IMPORTED_MODULE_7__providers_connection_connection__["a" /* ConnectionProvider */]])
     ], PrayerPage);
     return PrayerPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
 }());
 
 //# sourceMappingURL=prayer.js.map
 
 /***/ }),
 
-/***/ 300:
+/***/ 301:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1529,29 +1551,29 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(425);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_sign_up_sign_up__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_forgot_password_forgot_password__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_prayer_prayer__ = __webpack_require__(299);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_events_events__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_settings_settings__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_feedback_feedback__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_sign_up_sign_up__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_forgot_password_forgot_password__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_prayer_prayer__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_events_events__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_settings_settings__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_feedback_feedback__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_tabs_tabs__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__modals_terms_conditions_terms_conditions__ = __webpack_require__(303);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__modals_announcement_announcement__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__modals_add_channel_add_channel__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__modals_announcement_announcement__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__modals_add_channel_add_channel__ = __webpack_require__(301);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_status_bar__ = __webpack_require__(343);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_splash_screen__ = __webpack_require__(344);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_authentication_authentication__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_country_country__ = __webpack_require__(90);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_channel_channel__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_feedback_feedback__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_feedback_feedback__ = __webpack_require__(299);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_connection_connection__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_geolocation__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_geolocation__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_native_geocoder__ = __webpack_require__(302);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_local_notifications__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_background_mode__ = __webpack_require__(345);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_in_app_browser__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__ionic_native_network__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_in_app_browser__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__ionic_native_network__ = __webpack_require__(175);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1669,8 +1691,8 @@ var AppModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sign_up_sign_up__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__forgot_password_forgot_password__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sign_up_sign_up__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__forgot_password_forgot_password__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs_tabs__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_authentication_authentication__ = __webpack_require__(32);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1739,252 +1761,252 @@ var LoginPage = /** @class */ (function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 175,
-	"./af.js": 175,
-	"./ar": 176,
-	"./ar-dz": 177,
-	"./ar-dz.js": 177,
-	"./ar-kw": 178,
-	"./ar-kw.js": 178,
-	"./ar-ly": 179,
-	"./ar-ly.js": 179,
-	"./ar-ma": 180,
-	"./ar-ma.js": 180,
-	"./ar-sa": 181,
-	"./ar-sa.js": 181,
-	"./ar-tn": 182,
-	"./ar-tn.js": 182,
-	"./ar.js": 176,
-	"./az": 183,
-	"./az.js": 183,
-	"./be": 184,
-	"./be.js": 184,
-	"./bg": 185,
-	"./bg.js": 185,
-	"./bm": 186,
-	"./bm.js": 186,
-	"./bn": 187,
-	"./bn.js": 187,
-	"./bo": 188,
-	"./bo.js": 188,
-	"./br": 189,
-	"./br.js": 189,
-	"./bs": 190,
-	"./bs.js": 190,
-	"./ca": 191,
-	"./ca.js": 191,
-	"./cs": 192,
-	"./cs.js": 192,
-	"./cv": 193,
-	"./cv.js": 193,
-	"./cy": 194,
-	"./cy.js": 194,
-	"./da": 195,
-	"./da.js": 195,
-	"./de": 196,
-	"./de-at": 197,
-	"./de-at.js": 197,
-	"./de-ch": 198,
-	"./de-ch.js": 198,
-	"./de.js": 196,
-	"./dv": 199,
-	"./dv.js": 199,
-	"./el": 200,
-	"./el.js": 200,
-	"./en-au": 201,
-	"./en-au.js": 201,
-	"./en-ca": 202,
-	"./en-ca.js": 202,
-	"./en-gb": 203,
-	"./en-gb.js": 203,
-	"./en-ie": 204,
-	"./en-ie.js": 204,
-	"./en-il": 205,
-	"./en-il.js": 205,
-	"./en-nz": 206,
-	"./en-nz.js": 206,
-	"./eo": 207,
-	"./eo.js": 207,
-	"./es": 208,
-	"./es-do": 209,
-	"./es-do.js": 209,
-	"./es-us": 210,
-	"./es-us.js": 210,
-	"./es.js": 208,
-	"./et": 211,
-	"./et.js": 211,
-	"./eu": 212,
-	"./eu.js": 212,
-	"./fa": 213,
-	"./fa.js": 213,
-	"./fi": 214,
-	"./fi.js": 214,
-	"./fo": 215,
-	"./fo.js": 215,
-	"./fr": 216,
-	"./fr-ca": 217,
-	"./fr-ca.js": 217,
-	"./fr-ch": 218,
-	"./fr-ch.js": 218,
-	"./fr.js": 216,
-	"./fy": 219,
-	"./fy.js": 219,
-	"./gd": 220,
-	"./gd.js": 220,
-	"./gl": 221,
-	"./gl.js": 221,
-	"./gom-latn": 222,
-	"./gom-latn.js": 222,
-	"./gu": 223,
-	"./gu.js": 223,
-	"./he": 224,
-	"./he.js": 224,
-	"./hi": 225,
-	"./hi.js": 225,
-	"./hr": 226,
-	"./hr.js": 226,
-	"./hu": 227,
-	"./hu.js": 227,
-	"./hy-am": 228,
-	"./hy-am.js": 228,
-	"./id": 229,
-	"./id.js": 229,
-	"./is": 230,
-	"./is.js": 230,
-	"./it": 231,
-	"./it.js": 231,
-	"./ja": 232,
-	"./ja.js": 232,
-	"./jv": 233,
-	"./jv.js": 233,
-	"./ka": 234,
-	"./ka.js": 234,
-	"./kk": 235,
-	"./kk.js": 235,
-	"./km": 236,
-	"./km.js": 236,
-	"./kn": 237,
-	"./kn.js": 237,
-	"./ko": 238,
-	"./ko.js": 238,
-	"./ky": 239,
-	"./ky.js": 239,
-	"./lb": 240,
-	"./lb.js": 240,
-	"./lo": 241,
-	"./lo.js": 241,
-	"./lt": 242,
-	"./lt.js": 242,
-	"./lv": 243,
-	"./lv.js": 243,
-	"./me": 244,
-	"./me.js": 244,
-	"./mi": 245,
-	"./mi.js": 245,
-	"./mk": 246,
-	"./mk.js": 246,
-	"./ml": 247,
-	"./ml.js": 247,
-	"./mn": 248,
-	"./mn.js": 248,
-	"./mr": 249,
-	"./mr.js": 249,
-	"./ms": 250,
-	"./ms-my": 251,
-	"./ms-my.js": 251,
-	"./ms.js": 250,
-	"./mt": 252,
-	"./mt.js": 252,
-	"./my": 253,
-	"./my.js": 253,
-	"./nb": 254,
-	"./nb.js": 254,
-	"./ne": 255,
-	"./ne.js": 255,
-	"./nl": 256,
-	"./nl-be": 257,
-	"./nl-be.js": 257,
-	"./nl.js": 256,
-	"./nn": 258,
-	"./nn.js": 258,
-	"./pa-in": 259,
-	"./pa-in.js": 259,
-	"./pl": 260,
-	"./pl.js": 260,
-	"./pt": 261,
-	"./pt-br": 262,
-	"./pt-br.js": 262,
-	"./pt.js": 261,
-	"./ro": 263,
-	"./ro.js": 263,
-	"./ru": 264,
-	"./ru.js": 264,
-	"./sd": 265,
-	"./sd.js": 265,
-	"./se": 266,
-	"./se.js": 266,
-	"./si": 267,
-	"./si.js": 267,
-	"./sk": 268,
-	"./sk.js": 268,
-	"./sl": 269,
-	"./sl.js": 269,
-	"./sq": 270,
-	"./sq.js": 270,
-	"./sr": 271,
-	"./sr-cyrl": 272,
-	"./sr-cyrl.js": 272,
-	"./sr.js": 271,
-	"./ss": 273,
-	"./ss.js": 273,
-	"./sv": 274,
-	"./sv.js": 274,
-	"./sw": 275,
-	"./sw.js": 275,
-	"./ta": 276,
-	"./ta.js": 276,
-	"./te": 277,
-	"./te.js": 277,
-	"./tet": 278,
-	"./tet.js": 278,
-	"./tg": 279,
-	"./tg.js": 279,
-	"./th": 280,
-	"./th.js": 280,
-	"./tl-ph": 281,
-	"./tl-ph.js": 281,
-	"./tlh": 282,
-	"./tlh.js": 282,
-	"./tr": 283,
-	"./tr.js": 283,
-	"./tzl": 284,
-	"./tzl.js": 284,
-	"./tzm": 285,
-	"./tzm-latn": 286,
-	"./tzm-latn.js": 286,
-	"./tzm.js": 285,
-	"./ug-cn": 287,
-	"./ug-cn.js": 287,
-	"./uk": 288,
-	"./uk.js": 288,
-	"./ur": 289,
-	"./ur.js": 289,
-	"./uz": 290,
-	"./uz-latn": 291,
-	"./uz-latn.js": 291,
-	"./uz.js": 290,
-	"./vi": 292,
-	"./vi.js": 292,
-	"./x-pseudo": 293,
-	"./x-pseudo.js": 293,
-	"./yo": 294,
-	"./yo.js": 294,
-	"./zh-cn": 295,
-	"./zh-cn.js": 295,
-	"./zh-hk": 296,
-	"./zh-hk.js": 296,
-	"./zh-tw": 297,
-	"./zh-tw.js": 297
+	"./af": 176,
+	"./af.js": 176,
+	"./ar": 177,
+	"./ar-dz": 178,
+	"./ar-dz.js": 178,
+	"./ar-kw": 179,
+	"./ar-kw.js": 179,
+	"./ar-ly": 180,
+	"./ar-ly.js": 180,
+	"./ar-ma": 181,
+	"./ar-ma.js": 181,
+	"./ar-sa": 182,
+	"./ar-sa.js": 182,
+	"./ar-tn": 183,
+	"./ar-tn.js": 183,
+	"./ar.js": 177,
+	"./az": 184,
+	"./az.js": 184,
+	"./be": 185,
+	"./be.js": 185,
+	"./bg": 186,
+	"./bg.js": 186,
+	"./bm": 187,
+	"./bm.js": 187,
+	"./bn": 188,
+	"./bn.js": 188,
+	"./bo": 189,
+	"./bo.js": 189,
+	"./br": 190,
+	"./br.js": 190,
+	"./bs": 191,
+	"./bs.js": 191,
+	"./ca": 192,
+	"./ca.js": 192,
+	"./cs": 193,
+	"./cs.js": 193,
+	"./cv": 194,
+	"./cv.js": 194,
+	"./cy": 195,
+	"./cy.js": 195,
+	"./da": 196,
+	"./da.js": 196,
+	"./de": 197,
+	"./de-at": 198,
+	"./de-at.js": 198,
+	"./de-ch": 199,
+	"./de-ch.js": 199,
+	"./de.js": 197,
+	"./dv": 200,
+	"./dv.js": 200,
+	"./el": 201,
+	"./el.js": 201,
+	"./en-au": 202,
+	"./en-au.js": 202,
+	"./en-ca": 203,
+	"./en-ca.js": 203,
+	"./en-gb": 204,
+	"./en-gb.js": 204,
+	"./en-ie": 205,
+	"./en-ie.js": 205,
+	"./en-il": 206,
+	"./en-il.js": 206,
+	"./en-nz": 207,
+	"./en-nz.js": 207,
+	"./eo": 208,
+	"./eo.js": 208,
+	"./es": 209,
+	"./es-do": 210,
+	"./es-do.js": 210,
+	"./es-us": 211,
+	"./es-us.js": 211,
+	"./es.js": 209,
+	"./et": 212,
+	"./et.js": 212,
+	"./eu": 213,
+	"./eu.js": 213,
+	"./fa": 214,
+	"./fa.js": 214,
+	"./fi": 215,
+	"./fi.js": 215,
+	"./fo": 216,
+	"./fo.js": 216,
+	"./fr": 217,
+	"./fr-ca": 218,
+	"./fr-ca.js": 218,
+	"./fr-ch": 219,
+	"./fr-ch.js": 219,
+	"./fr.js": 217,
+	"./fy": 220,
+	"./fy.js": 220,
+	"./gd": 221,
+	"./gd.js": 221,
+	"./gl": 222,
+	"./gl.js": 222,
+	"./gom-latn": 223,
+	"./gom-latn.js": 223,
+	"./gu": 224,
+	"./gu.js": 224,
+	"./he": 225,
+	"./he.js": 225,
+	"./hi": 226,
+	"./hi.js": 226,
+	"./hr": 227,
+	"./hr.js": 227,
+	"./hu": 228,
+	"./hu.js": 228,
+	"./hy-am": 229,
+	"./hy-am.js": 229,
+	"./id": 230,
+	"./id.js": 230,
+	"./is": 231,
+	"./is.js": 231,
+	"./it": 232,
+	"./it.js": 232,
+	"./ja": 233,
+	"./ja.js": 233,
+	"./jv": 234,
+	"./jv.js": 234,
+	"./ka": 235,
+	"./ka.js": 235,
+	"./kk": 236,
+	"./kk.js": 236,
+	"./km": 237,
+	"./km.js": 237,
+	"./kn": 238,
+	"./kn.js": 238,
+	"./ko": 239,
+	"./ko.js": 239,
+	"./ky": 240,
+	"./ky.js": 240,
+	"./lb": 241,
+	"./lb.js": 241,
+	"./lo": 242,
+	"./lo.js": 242,
+	"./lt": 243,
+	"./lt.js": 243,
+	"./lv": 244,
+	"./lv.js": 244,
+	"./me": 245,
+	"./me.js": 245,
+	"./mi": 246,
+	"./mi.js": 246,
+	"./mk": 247,
+	"./mk.js": 247,
+	"./ml": 248,
+	"./ml.js": 248,
+	"./mn": 249,
+	"./mn.js": 249,
+	"./mr": 250,
+	"./mr.js": 250,
+	"./ms": 251,
+	"./ms-my": 252,
+	"./ms-my.js": 252,
+	"./ms.js": 251,
+	"./mt": 253,
+	"./mt.js": 253,
+	"./my": 254,
+	"./my.js": 254,
+	"./nb": 255,
+	"./nb.js": 255,
+	"./ne": 256,
+	"./ne.js": 256,
+	"./nl": 257,
+	"./nl-be": 258,
+	"./nl-be.js": 258,
+	"./nl.js": 257,
+	"./nn": 259,
+	"./nn.js": 259,
+	"./pa-in": 260,
+	"./pa-in.js": 260,
+	"./pl": 261,
+	"./pl.js": 261,
+	"./pt": 262,
+	"./pt-br": 263,
+	"./pt-br.js": 263,
+	"./pt.js": 262,
+	"./ro": 264,
+	"./ro.js": 264,
+	"./ru": 265,
+	"./ru.js": 265,
+	"./sd": 266,
+	"./sd.js": 266,
+	"./se": 267,
+	"./se.js": 267,
+	"./si": 268,
+	"./si.js": 268,
+	"./sk": 269,
+	"./sk.js": 269,
+	"./sl": 270,
+	"./sl.js": 270,
+	"./sq": 271,
+	"./sq.js": 271,
+	"./sr": 272,
+	"./sr-cyrl": 273,
+	"./sr-cyrl.js": 273,
+	"./sr.js": 272,
+	"./ss": 274,
+	"./ss.js": 274,
+	"./sv": 275,
+	"./sv.js": 275,
+	"./sw": 276,
+	"./sw.js": 276,
+	"./ta": 277,
+	"./ta.js": 277,
+	"./te": 278,
+	"./te.js": 278,
+	"./tet": 279,
+	"./tet.js": 279,
+	"./tg": 280,
+	"./tg.js": 280,
+	"./th": 281,
+	"./th.js": 281,
+	"./tl-ph": 282,
+	"./tl-ph.js": 282,
+	"./tlh": 283,
+	"./tlh.js": 283,
+	"./tr": 284,
+	"./tr.js": 284,
+	"./tzl": 285,
+	"./tzl.js": 285,
+	"./tzm": 286,
+	"./tzm-latn": 287,
+	"./tzm-latn.js": 287,
+	"./tzm.js": 286,
+	"./ug-cn": 288,
+	"./ug-cn.js": 288,
+	"./uk": 289,
+	"./uk.js": 289,
+	"./ur": 290,
+	"./ur.js": 290,
+	"./uz": 291,
+	"./uz-latn": 292,
+	"./uz-latn.js": 292,
+	"./uz.js": 291,
+	"./vi": 293,
+	"./vi.js": 293,
+	"./x-pseudo": 294,
+	"./x-pseudo.js": 294,
+	"./yo": 295,
+	"./yo.js": 295,
+	"./zh-cn": 296,
+	"./zh-cn.js": 296,
+	"./zh-hk": 297,
+	"./zh-hk.js": 297,
+	"./zh-tw": 298,
+	"./zh-tw.js": 298
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -2019,6 +2041,7 @@ webpackContext.id = 407;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_authentication_authentication__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_local_notifications__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_background_mode__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_geolocation__ = __webpack_require__(91);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2038,11 +2061,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var MyApp = /** @class */ (function () {
-    function MyApp(app, platform, statusBar, splashScreen, authProvider, storage, events, backgroundMode, localNotifications, alertCtrl) {
+    function MyApp(app, platform, geolocation, statusBar, splashScreen, authProvider, storage, events, backgroundMode, localNotifications, alertCtrl) {
         var _this = this;
         this.app = app;
         this.platform = platform;
+        this.geolocation = geolocation;
         this.statusBar = statusBar;
         this.splashScreen = splashScreen;
         this.authProvider = authProvider;
@@ -2119,13 +2144,15 @@ var MyApp = /** @class */ (function () {
                     //alert("failed: " + status);
                     _this.storage.get("subscription").then(function (data) {
                         if (data) {
-                            var alert_1 = _this.alertCtrl.create({
-                                title: 'Connection Failed',
-                                subTitle: 'Failed to retreive Salat times from the server',
-                                message: 'Please check your internet connection.',
-                                buttons: ['Dismiss']
+                            /*
+                            let alert = this.alertCtrl.create({
+                              title: 'Connection Failed',
+                              subTitle: 'Failed to retreive Salat times from the server',
+                              message: 'Please check your internet connection.',
+                              buttons: ['Dismiss']
                             });
-                            alert_1.present();
+                            alert.present();
+                            */
                         }
                     });
                     console.log(status);
@@ -2247,7 +2274,7 @@ var MyApp = /** @class */ (function () {
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\Taylor\Documents\Websites\callerbot\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"D:\Taylor\Documents\Websites\callerbot\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_7__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_9__ionic_native_background_mode__["a" /* BackgroundMode */], __WEBPACK_IMPORTED_MODULE_8__ionic_native_local_notifications__["a" /* LocalNotifications */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_10__ionic_native_geolocation__["a" /* Geolocation */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_7__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_9__ionic_native_background_mode__["a" /* BackgroundMode */], __WEBPACK_IMPORTED_MODULE_8__ionic_native_local_notifications__["a" /* LocalNotifications */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], MyApp);
     return MyApp;
 }());
@@ -2282,7 +2309,7 @@ var AppSettings = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_settings__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_network__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_network__ = __webpack_require__(175);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2565,10 +2592,10 @@ var ChannelProvider = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__prayer_prayer__ = __webpack_require__(299);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__events_events__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__settings_settings__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__feedback_feedback__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__prayer_prayer__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__events_events__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__settings_settings__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__feedback_feedback__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_authentication_authentication__ = __webpack_require__(32);
