@@ -119,6 +119,7 @@
     </plugin>    
     <gap:plugin spec="https://github.com/sanctus671/cordova-plugin-local-notifications" />
     <gap:plugin spec="https://github.com/thomas550i/cordova-plugin-doze-Optimize" />
+    <gap:plugin spec="https://github.com/boltex/cordova-plugin-powermanagement" />
     <plugin name="cordova-plugin-background-mode" spec="^0.7.2" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
