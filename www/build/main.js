@@ -538,7 +538,7 @@ webpackEmptyAsyncContext.id = 129;
 
 var map = {
 	"../pages/events/events.module": [
-		429,
+		431,
 		5
 	],
 	"../pages/feedback/feedback.module": [
@@ -554,11 +554,11 @@ var map = {
 		2
 	],
 	"../pages/settings/settings.module": [
-		431,
+		430,
 		1
 	],
 	"../pages/sign-up/sign-up.module": [
-		430,
+		429,
 		0
 	]
 };
@@ -1653,9 +1653,9 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/feedback/feedback.module#FeedbackPageModule', name: 'FeedbackPage', segment: 'feedback', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/forgot-password/forgot-password.module#ForgotPasswordPageModule', name: 'ForgotPasswordPage', segment: 'forgot-password', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/events/events.module#EventsPageModule', name: 'EventsPage', segment: 'events', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sign-up/sign-up.module#SignUpPageModule', name: 'SignUpPage', segment: 'sign-up', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/events/events.module#EventsPageModule', name: 'EventsPage', segment: 'events', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
@@ -2215,7 +2215,11 @@ var MyApp = /** @class */ (function () {
                 }, function () {
                     console.log('Failed to set');
                 });
-                //this.platform.pause.subscribe(() => { this.backgroundMode.moveToBackground(); });                
+                _this.platform.pause.subscribe(function () {
+                    setTimeout(function () {
+                        _this.backgroundMode.moveToBackground();
+                    }, 20000);
+                });
             }
             _this.events.subscribe("network:online", function () {
                 setTimeout(function () {
