@@ -2217,8 +2217,10 @@ var MyApp = /** @class */ (function () {
                 });
                 _this.platform.pause.subscribe(function () {
                     _this.backgroundTimeout = setTimeout(function () {
-                        _this.backgroundMode.moveToBackground();
-                    }, 20000);
+                        if (!_this.backgroundMode.isActive()) {
+                            _this.backgroundMode.moveToBackground();
+                        }
+                    }, 30000);
                 });
                 _this.platform.resume.subscribe(function () {
                     if (_this.backgroundTimeout) {
