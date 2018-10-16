@@ -2175,8 +2175,12 @@ var MyApp = /** @class */ (function () {
                 });
                 mqtt.on("disconnect", function () {
                     mqtt.connect();
+                }, function () {
+                    mqtt.connect();
                 });
                 mqtt.on("reconnect", function () {
+                    mqtt.connect();
+                }, function () {
                     mqtt.connect();
                 });
             }
