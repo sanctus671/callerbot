@@ -2173,6 +2173,12 @@ var MyApp = /** @class */ (function () {
                     });
                     console.log(status);
                 });
+                mqtt.on("disconnect", function () {
+                    mqtt.connect();
+                });
+                mqtt.on("reconnect", function () {
+                    mqtt.connect();
+                });
             }
             else {
                 /*
