@@ -2261,6 +2261,7 @@ var MyApp = /** @class */ (function () {
             _this.storage.get("user").then(function (token) {
                 console.log(token);
                 if (token) {
+                    _this.user = token;
                     _this.app.getRootNav().setRoot(__WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__["a" /* TabsPage */]);
                     _this.app.getRootNav().popToRoot();
                     _this.savePushId();
@@ -2270,7 +2271,7 @@ var MyApp = /** @class */ (function () {
                 _this.splashScreen.hide();
             });
             _this.events.subscribe("user:loggedin", function () {
-                _this.savePushId();
+                //this.savePushId();
             });
             if (platform.is("cordova")) {
                 cordova.plugins.DozeOptimize.IsIgnoringBatteryOptimizations(function (response) {
@@ -2292,7 +2293,8 @@ var MyApp = /** @class */ (function () {
                 });
                 _this.oneSignal.startInit("81102899-2cf7-491c-b936-5c5c300269d2", "420587777749");
                 _this.oneSignal.inFocusDisplaying(2);
-                _this.oneSignal.handleNotificationReceived().subscribe(function () {
+                _this.oneSignal.handleNotificationReceived().subscribe(function (data) {
+                    console.log(data);
                     _this.events.publish("notification:received");
                 });
                 _this.oneSignal.handleNotificationOpened().subscribe(function (data) {
@@ -2463,7 +2465,13 @@ var MyApp = /** @class */ (function () {
             if (data.userId) {
                 //save
                 //this.auth.savePushId(data.userId);
-                _this.authProvider.updateUser({ deviceToken: data.userId });
+                var user = {
+                    appUserName: _this.user.appUserName,
+                    email: _this.user.email,
+                    mobile: _this.user.mobile,
+                    deviceToken: data.userId
+                };
+                _this.authProvider.updateUser(user);
             }
         }).catch(function (e) {
             //console.log(e);
