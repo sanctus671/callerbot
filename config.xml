@@ -17,7 +17,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <preference name="phonegap-version" value="cli-7.1.0" />
+    <preference name="phonegap-version" value="cli-8.0.0" />
     <preference name='pgb-builder-version' value='2' />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
@@ -36,6 +36,9 @@
         <preference name="StatusBarBackgroundColor" value="#952517" />
         <allow-intent href="market:*" />
         <preference name="loadUrlTimeoutValue" value="700000" />
+		
+		<preference name="android-build-tool" value="gradle" />	
+		
         <icon density="ldpi" src="resources/android/icon/ldpi.png" />
         <icon density="mdpi" src="resources/android/icon/mdpi.png" />
         <icon density="hdpi" src="resources/android/icon/hdpi.png" />
