@@ -112,7 +112,8 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="1.2.1" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="2.0.5" />
-    <gap:plugin name="cordova-plugin-statusbar" source="npm" version="^2.4.2" />
+    
+    <gap:plugin spec="https://github.com/apache/cordova-plugin-statusbar" />
     
     <gap:plugin spec="https://github.com/brodybits/cordova-sqlite-legacy-build-support" />
     <gap:plugin spec="https://github.com/sanctus671/cordova-plugin-fastrde-mqtt#master" />
