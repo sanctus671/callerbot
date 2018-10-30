@@ -33,13 +33,13 @@
     <platform name="android">
         
         <engine name="android" spec="~6.4.0" />
-        <edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application" mode="merge"></edit-config>
+
         <preference name="StatusBarStyle" value="lightcontent" />
         <preference name="StatusBarBackgroundColor" value="#952517" />
         <allow-intent href="market:*" />
         <preference name="loadUrlTimeoutValue" value="700000" />
 		
-		<preference name="android-build-tool" value="gradle" />	
+	<preference name="android-build-tool" value="gradle" />	
 		
         <icon density="ldpi" src="resources/android/icon/ldpi.png" />
         <icon density="mdpi" src="resources/android/icon/mdpi.png" />
@@ -112,8 +112,7 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="1.2.1" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="2.0.5" />
-    
-    <gap:plugin spec="https://github.com/apache/cordova-plugin-statusbar" />
+
 
     <gap:plugin spec="https://github.com/sanctus671/cordova-plugin-fastrde-mqtt#master" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
