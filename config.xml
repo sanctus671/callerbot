@@ -18,7 +18,6 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <preference name="phonegap-version" value="cli-8.0.0" />
-    <preference name='pgb-builder-version' value='2' />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="android-targetSdkVersion" value="27" />
@@ -114,8 +113,7 @@
     <plugin name="cordova-plugin-ionic-keyboard" spec="2.0.5" />
     
     <gap:plugin spec="https://github.com/apache/cordova-plugin-statusbar" />
-    
-    <gap:plugin spec="https://github.com/brodybits/cordova-sqlite-legacy-build-support" />
+
     <gap:plugin spec="https://github.com/sanctus671/cordova-plugin-fastrde-mqtt#master" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="We use your location to show you the best channels to subscribe to" />
