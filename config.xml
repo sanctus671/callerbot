@@ -106,7 +106,5 @@
     <splash platform="ios" src="resources/ios/splash/Default@3x~iphone~comany.png" />
     <splash platform="ios" src="resources/ios/splash/Default@2x~ipad~anyany.png" />
     <splash platform="ios" src="resources/ios/splash/Default@2x~ipad~comany.png" />
-    
 
-    <plugin name="onesignal-cordova-plugin" spec="^2.4.4" />
 </widget>
