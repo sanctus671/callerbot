@@ -32,7 +32,8 @@
     <preference name="WKSuspendInBackground" value="false" />
     <platform name="android">
         
-        <engine name="android" spec="6.4.0" />
+        <engine name="android" spec="~6.4.0" />
+        <edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application" mode="merge"></edit-config>
         <preference name="StatusBarStyle" value="lightcontent" />
         <preference name="StatusBarBackgroundColor" value="#952517" />
         <allow-intent href="market:*" />
