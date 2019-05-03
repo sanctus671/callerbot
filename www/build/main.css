@@ -25662,6 +25662,61 @@ ion-navbar.toolbar {
   background-image: none;
 }
 
+.channel-unsubscribe.channels-tab {
+  margin-top: 0px;
+}
+
+.directory-filter-form .item {
+  background-color: transparent;
+}
+
+.directory-filter-form .item .select-icon .select-icon-inner {
+  color: White;
+}
+
+.directory .item {
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border-bottom: none;
+}
+
+.directory .item.item-block .item-inner {
+  border-bottom: none;
+}
+
+.directory .item.featured {
+  background-color: #ffe586;
+}
+
+.directory-empty {
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.item p.directory-link {
+  color: #b81b16 !important;
+  text-decoration: underline;
+}
+
+.alert-md .alert-radio-label {
+  white-space: normal;
+}
+
+.alert-ios .alert-radio-label {
+  white-space: normal;
+}
+
+.events-items.channel-items {
+  margin-top: 0px;
+}
+
+.events-headers {
+  margin-top: 10px;
+}
+
 .module-description {
   text-align: center;
   color: white;
@@ -25759,11 +25814,22 @@ ion-navbar.toolbar {
 
 .login-error {
   text-align: center;
-  color: #ff0300;
+  color: white;
 }
 
 .login-form .text-input-md, .input-has-value .label-md[floating], .input-has-focus .label-md[floating] {
   color: white;
+}
+
+.login-form .text-input-ios, .input-has-value .label-ios[floating], .input-has-focus .label-ios[floating] {
+  color: white;
+}
+
+.screen-title {
+  color: White;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .offline-status {
@@ -25851,6 +25917,11 @@ ion-navbar.toolbar {
   margin-bottom: 15px;
 }
 
+.channel-item.has-passed {
+  background-color: #cecece;
+  opacity: 0.8;
+}
+
 .channel-item.channel-headers {
   background-color: transparent;
   color: white;
@@ -25873,6 +25944,10 @@ ion-navbar.toolbar {
 .channel-unsubscribe {
   text-align: center;
   margin-top: 40px;
+}
+
+.channel-unsubscribe.active-button {
+  margin-top: 25px;
 }
 
 .unsubscribe-button ion-icon {

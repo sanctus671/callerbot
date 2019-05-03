@@ -32,19 +32,28 @@
     "@ionic-native/status-bar": "~4.10.0",
     "@ionic/storage": "2.1.3",
     "@types/node": "^10.7.1",
-    "cordova-plugin-background-mode": "^0.7.2",
-    "cordova-plugin-geolocation": "^4.0.1",
-    "cordova-plugin-inappbrowser": "^3.0.0",
-    "cordova-plugin-mqtt": "^0.3.8",
-    "cordova-plugin-mqtt-pahojs": "^1.5.8",
-    "cordova-plugin-nativegeocoder": "^3.1.2",
-    "cordova-plugin-network-information": "^2.0.1",
-    "cordova-plugin-powermanagement-orig": "git+https://github.com/boltex/cordova-plugin-powermanagement.git",
-    "de.appplant.cordova.plugin.local-notification": "^0.8.5",
+    "cordova-android": "7.1.1",
+    "cordova-plugin-background-mode": "git+https://github.com/tushe/cordova-plugin-background-mode.git",
+    "cordova-plugin-badge": "^0.8.7",
+    "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-doze-Optimize": "git+https://github.com/thomas550i/cordova-plugin-doze-Optimize.git",
+    "cordova-plugin-fastrde-mqtt": "git+https://github.com/sanctus671/cordova-plugin-fastrde-mqtt.git#master",
+    "cordova-plugin-geolocation": "4.0.1",
+    "cordova-plugin-inappbrowser": "3.0.0",
+    "cordova-plugin-ionic-keyboard": "2.0.5",
+    "cordova-plugin-ionic-webview": "1.2.1",
+    "cordova-plugin-local-notification": "git+https://github.com/sanctus671/cordova-plugin-local-notifications.git",
+    "cordova-plugin-nativegeocoder": "3.1.2",
+    "cordova-plugin-network-information": "2.0.1",
+    "cordova-plugin-splashscreen": "5.0.2",
+    "cordova-plugin-statusbar": "2.4.2",
+    "cordova-plugin-whitelist": "1.3.3",
+    "cordova.plugins.DozeOptimize": "https://github.com/thomas550i/cordova-plugin-doze-Optimize",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "moment": "^2.22.2",
     "mqtt": "^2.18.3",
+    "onesignal-cordova-plugin": "2.4.4",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26"
@@ -56,16 +65,27 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-mqtt": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-statusbar": {},
       "cordova-plugin-geolocation": {
         "GEOLOCATION_USAGE_DESCRIPTION": "We use your location to show you the best channels to subscribe to"
       },
-      "de.appplant.cordova.plugin.local-notification": {},
-      "cordova-plugin-background-mode": {},
-      "cordova-plugin-mqtt-pahojs": {},
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-network-information": {},
-      "cordova-plugin-nativegeocoder": {}
-    }
+      "cordova-plugin-nativegeocoder": {},
+      "onesignal-cordova-plugin": {},
+      "cordova.plugins.DozeOptimize": {},
+      "cordova-plugin-background-mode": {},
+      "cordova-plugin-badge": {},
+      "cordova-plugin-local-notification": {},
+      "cordova-plugin-fastrde-mqtt": {}
+    },
+    "platforms": [
+      "android"
+    ]
   }
 }
