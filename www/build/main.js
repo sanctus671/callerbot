@@ -2696,6 +2696,7 @@ var MyApp = /** @class */ (function () {
             else {
                 _this.statusBar.styleLightContent();
             }
+            alert("platform loaded");
             _this.storage.get("user").then(function (token) {
                 if (token) {
                     _this.user = token;
@@ -2703,7 +2704,7 @@ var MyApp = /** @class */ (function () {
                     _this.app.getRootNav().popToRoot();
                     _this.savePushId();
                 }
-                setTimeout(function () { _this.splashScreen.hide(); }, 500);
+                setTimeout(function () { _this.splashScreen.hide(); alert("spalshscreen hide"); }, 500);
             }).catch(function () {
                 _this.splashScreen.hide();
             });
@@ -2716,18 +2717,20 @@ var MyApp = /** @class */ (function () {
                 });
             });
             if (platform.is("cordova")) {
-                cordova.plugins.DozeOptimize.IsIgnoringBatteryOptimizations(function (response) {
-                    if (response == "false") {
-                        setTimeout(function () {
-                            cordova.plugins.DozeOptimize.RequestOptimizations(function (response) {
-                            }, function (error) {
-                            });
-                        }, 3000);
-                    }
-                    else {
-                    }
-                }, function (error) {
-                });
+                if (platform.is("android")) {
+                    cordova.plugins.DozeOptimize.IsIgnoringBatteryOptimizations(function (response) {
+                        if (response == "false") {
+                            setTimeout(function () {
+                                cordova.plugins.DozeOptimize.RequestOptimizations(function (response) {
+                                }, function (error) {
+                                });
+                            }, 3000);
+                        }
+                        else {
+                        }
+                    }, function (error) {
+                    });
+                }
                 _this.oneSignal.startInit("81102899-2cf7-491c-b936-5c5c300269d2", "420587777749");
                 _this.oneSignal.inFocusDisplaying(2);
                 _this.oneSignal.handleNotificationReceived().subscribe(function (data) {
@@ -2739,6 +2742,7 @@ var MyApp = /** @class */ (function () {
                     }
                 });
                 _this.oneSignal.endInit();
+                alert("onesignal done");
             }
             if (platform.is("cordova") && (platform.is("android") || platform.is("ios"))) {
                 _this.useNative = true;
@@ -2755,6 +2759,7 @@ var MyApp = /** @class */ (function () {
                 });
                 mqtt.connect();
                 mqtt.on("connect", function () {
+                    alert("mqtt connected");
                     _this.storage.get("subscription").then(function (data) {
                         if (data) {
                             _this.mqttSubscribe(data.hubId);
@@ -2776,6 +2781,7 @@ var MyApp = /** @class */ (function () {
                         }
                     });
                 });
+                alert("mqtt done");
                 /*
                 mqtt.on("disconnect", () => {
                     mqtt.connect();
@@ -3538,6 +3544,7 @@ var LoginPage = /** @class */ (function () {
         this.user = { appUserName: "", email: "", password: "", mobile: "", deviceToken: "" };
         this.properties = { loading: false, error: "" };
         this.savePushId();
+        alert("at login");
     }
     LoginPage.prototype.savePushId = function () {
         var _this = this;
