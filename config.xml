@@ -114,11 +114,11 @@
     </plugin>
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.2" />
     <plugin name="cordova-plugin-network-information" spec="2.0.1" />
+    <plugin name="cordova-plugin-nativegeocoder" spec="3.1.2" />
     <plugin name="onesignal-cordova-plugin" spec="2.4.5" />
     <plugin name="cordova.plugins.DozeOptimize" spec="https://github.com/thomas550i/cordova-plugin-doze-Optimize" />
     <plugin name="cordova-plugin-background-mode" spec="https://github.com/tushe/cordova-plugin-background-mode" />
     <plugin name="cordova-plugin-badge" spec="^0.8.7" />
     <plugin name="cordova-plugin-local-notification" spec="https://github.com/sanctus671/cordova-plugin-local-notifications" />
-    <plugin name="cordova-plugin-fastrde-mqtt" spec="https://github.com/sanctus671/cordova-plugin-fastrde-mqtt#master" />
     <engine name="android" spec="7.1.1" />
 </widget>
